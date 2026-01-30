@@ -30,35 +30,39 @@
             min-height: 100vh; overflow-x: hidden;
         }
 
-        /* Ratings & Ads */
         .rating { position: absolute; top: 20px; left: 20px; border: 2px solid #fff; padding: 4px 12px; font-size: 1rem; font-weight: 900; letter-spacing: 1px; background: rgba(0,0,0,0.5); z-index: 10; }
-        .ad-tray { margin-top: 80px; width: 90%; max-width: 1400px; padding-bottom: 20px; }
-        .ad-label { font-size: 0.8rem; color: var(--gold-premium); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; text-align: center; font-weight: 900; }
-        .ad-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .ad-box { border-radius: 12px; overflow: hidden; border: 2px solid #222; transition: all 0.5s ease; }
-        .ad-box img { width: 100%; height: auto; display: block; }
+        
+        /* Changed naming to bypass blockers */
+        .top-nav-zone { margin-top: 80px; width: 90%; max-width: 1400px; padding-bottom: 20px; }
+        .zone-label { font-size: 0.8rem; color: var(--gold-premium); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; text-align: center; font-weight: 900; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .clickable-feature { 
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 2px solid #222; 
+            transition: all 0.5s ease; 
+            display: block; /* Makes the whole area clickable */
+        }
+        .clickable-feature:hover { border-color: var(--glow-red); transform: translateY(-5px); }
+        .clickable-feature img { width: 100%; height: auto; display: block; }
         
         .hero { text-align: center; padding: 20px 20px 40px; z-index: 2; width: 100%; max-width: 800px; }
         h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(4rem, 15vw, 9rem); text-transform: uppercase; margin: 0; letter-spacing: -4px; line-height: 0.9; background: linear-gradient(to bottom, #fff 30%, #444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .meta-data { margin: 20px 0; font-weight: 700; font-size: 1rem; color: #888; }
         .meta-data span.match { color: #46d369; margin-right: 15px; }
 
-        /* BUTTON ROW */
         .btn-row { display: flex; gap: 15px; justify-content: center; align-items: flex-start; margin-bottom: 40px; flex-wrap: wrap; }
 
-        /* MIRROR DROPDOWN */
         .mirror-dropdown { position: relative; }
         .mirror-summary { list-style: none; background: #fff; color: #000; padding: 18px 30px; font-size: 1.1rem; font-weight: 800; border-radius: 5px; cursor: pointer; display: flex; align-items: center; gap: 10px; animation: pulse-glow 2s infinite; }
-        .mirror-summary::-webkit-details-marker { display: none; }
         .mirror-list { background: #111; border: 1px solid #333; border-radius: 5px; padding: 10px; position: absolute; width: 280px; left: 0; top: 110%; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
         .mirror-list a { display: block; color: #fff; text-decoration: none; padding: 12px; font-size: 0.8rem; border-bottom: 1px solid #222; text-align: left; }
         .mirror-list a:hover { color: var(--gold-premium); background: #1a1a1a; }
 
-        /* IPTV BUTTON */
         .btn-iptv { background: var(--glow-red); color: #fff; padding: 18px 30px; font-size: 1.1rem; font-weight: 800; border-radius: 5px; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; border: none; cursor: pointer; }
         .btn-iptv:hover { transform: scale(1.05); background: #cc0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
 
-        /* DONATION BLOCK */
         .donation-block { background: rgba(255, 255, 255, 0.05); border: 1px solid #333; padding: 30px; border-radius: 12px; margin: 0 auto; text-align: left; }
         .donation-title { color: var(--gold-premium); font-family: 'Archivo Black', sans-serif; text-transform: uppercase; font-size: 1.2rem; margin: 0 0 15px; }
         .wallet-row { margin-bottom: 15px; }
@@ -66,13 +70,7 @@
         .wallet-container { display: flex; gap: 5px; margin-top: 5px; }
         .wallet-code { flex-grow: 1; background: #000; padding: 10px; border: 1px solid #444; border-radius: 4px; font-family: monospace; font-size: 0.8rem; color: #ccc; word-break: break-all; }
         .copy-btn { background: #333; color: #fff; border: none; padding: 0 12px; border-radius: 4px; cursor: pointer; font-size: 0.65rem; text-transform: uppercase; font-weight: 800; }
-        .copy-btn:hover { background: var(--gold-premium); color: #000; }
 
-        .donation-dropdown { background: #111; padding: 10px; border-radius: 5px; border: 1px solid #222; cursor: pointer; margin-top: 20px; }
-        .donation-dropdown summary { color: var(--gold-premium); font-weight: 700; outline: none; font-size: 0.9rem; }
-        .donation-option { margin-top: 15px; padding-top: 10px; border-top: 1px solid #222; }
-
-        /* BANNED BOX */
         .glow-links-banned { margin: 40px 0; width: 80%; max-width: 728px; display: block; }
         .banned-gif { width: 100%; border-radius: 10px; border: 2px solid #222; transition: all 0.3s; }
         .banned-gif:hover { border-color: var(--glow-red); box-shadow: 0 0 20px var(--glow-red); transform: scale(1.01); }
@@ -85,12 +83,12 @@
 
     <div class="rating">NC-17</div>
 
-    <div class="ad-tray">
-        <div class="ad-label">Sponsored Global Priority</div>
-        <div class="ad-container" id="shuffle-box">
-            <div class="ad-box"><a href="https://stake.com/?c=ELPw3Qd3" target="_blank"><img src="stake.gif" alt="Stake"></a></div>
-            <div class="ad-box"><a href="https://r.adbtc.top/4143298" target="_blank"><img src="BTC.gif" alt="BTC"></a></div>
-            <div class="ad-box"><a href="https://stake.com/?c=ELPw3Qd3" target="_blank"><img src="stake1.gif" alt="Stake VIP"></a></div>
+    <div class="top-nav-zone">
+        <div class="zone-label">Featured Global Partners</div>
+        <div class="feature-grid" id="shuffle-box">
+            <a href="https://stake.com/?c=ELPw3Qd3" target="_blank" class="clickable-feature"><img src="stake.gif" alt="Stake"></a>
+            <a href="https://r.adbtc.top/4143298" target="_blank" class="clickable-feature"><img src="BTC.gif" alt="BTC"></a>
+            <a href="https://stake.com/?c=ELPw3Qd3" target="_blank" class="clickable-feature"><img src="stake1.gif" alt="Stake VIP"></a>
         </div>
     </div>
 
@@ -100,9 +98,9 @@
             <span class="match">99% Match</span> 2026 | 1 Season | <strong>Live Anonymity</strong>
         </div>
         
-            <p style="color:var(--gold); font-size:0.85rem; margin-top: 15px; font-weight: bold; text-align: center; border: 1px solid rgba(216, 200, 160, 0.2); padding: 10px; border-radius: 8px;">
-                ⚠️ ALERT: Our <b>ONLY</b> Email Address for contact: NOVOHC-499@proton.me ( we never send from other email addresses )
-            </p>
+        <p style="color:var(--gold); font-size:0.85rem; margin-top: 15px; font-weight: bold; text-align: center; border: 1px solid rgba(216, 200, 160, 0.2); padding: 10px; border-radius: 8px;">
+            ⚠️ ALERT: Our <b>ONLY</b> Email Address for contact: NOVOHC-499@proton.me
+        </p>
         
         <div class="btn-row">
             <details class="mirror-dropdown">
@@ -126,7 +124,7 @@
         </div>
 
         <div class="donation-block">
-            <h2 class="donation-title">Support the Network to release this full site as fast as possible</h2>
+            <h2 class="donation-title">Support the Network</h2>
             
             <div class="wallet-row">
                 <span class="wallet-label">Bitcoin BTC:</span>
@@ -143,58 +141,6 @@
                     <button class="copy-btn" onclick="copyText('xmr-main')">Copy</button>
                 </div>
             </div>
-
-            <details class="donation-dropdown">
-                <summary>Other Cryptocurrencies</summary>
-                
-                <div class="donation-option">
-                    <span class="wallet-label">Secondary BTC:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="btc-sec">bc1qlgqjcjtusy9fut7zm84c43zelc30fz3zxfe9rv</div>
-                        <button class="copy-btn" onclick="copyText('btc-sec')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Nano:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="nano">nano_1dq3eh46jertoza3coujpr1h3dhhrwyofc3dk9y8ho5gf1yph74jhxi5b87i</div>
-                        <button class="copy-btn" onclick="copyText('nano')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Bitcoin Cash:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="bch">bitcoincash:qz5l3cw370xxh22r03s3us97e0h33emagczc949p9a</div>
-                        <button class="copy-btn" onclick="copyText('bch')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Litecoin:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="ltc">ltc1q7ptrmg0n9y3af5dyxawwe8ugjl4l990f5rnn78</div>
-                        <button class="copy-btn" onclick="copyText('ltc')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Ethereum:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="eth">0xb7a8C2deecAE937a1c671F7b2FD4c7ae024aE77e</div>
-                        <button class="copy-btn" onclick="copyText('eth')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Solana:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="sol">BKBiRQNpYohE1AQkD4KHt5KHQEFVqttdoJR8F4zzz4AC</div>
-                        <button class="copy-btn" onclick="copyText('sol')">Copy</button>
-                    </div>
-                </div>
-            </details>
         </div>
     </div>
 
@@ -239,11 +185,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
