@@ -12,6 +12,7 @@
             --text: #ffffff;
             --muted: #888;
             --gold: #d8c8a0;
+            --success: #00ff00;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -32,7 +33,7 @@
         }
 
         .container {
-            max-width: 800px; margin: 60px auto; padding: 20px;
+            max-width: 900px; margin: 60px auto; padding: 20px;
             display: flex; flex-direction: column; gap: 30px;
         }
 
@@ -57,15 +58,60 @@
         }
         select:focus { border-color: var(--accent); }
 
-        .plan-options { display: flex; flex-direction: column; gap: 15px; margin: 20px 0; }
-        .plan-card {
-            padding: 20px; border: 1px solid #333; border-radius: 12px;
-            cursor: pointer; transition: 0.3s; display: flex; justify-content: space-between; align-items: center;
+        /* Updated Plan Section Styles */
+        .plan-options { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 20px; 
+            margin: 20px 0; 
         }
-        .plan-card:hover { border-color: var(--accent); background: rgba(255, 62, 62, 0.05); }
-        .plan-card.active { border-color: var(--accent); background: rgba(255, 62, 62, 0.1); box-shadow: 0 0 15px rgba(255, 62, 62, 0.2); }
+        
+        @media (min-width: 768px) {
+            .plan-options { grid-template-columns: 1fr 1fr; }
+            .plan-card.trial { grid-column: span 2; }
+        }
 
-        .price { font-weight: 900; color: var(--accent); }
+        .plan-card {
+            padding: 25px; 
+            border: 1px solid #333; 
+            border-radius: 16px;
+            cursor: pointer; 
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            display: flex; 
+            flex-direction: column;
+            position: relative;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .plan-card:hover { border-color: var(--accent); background: rgba(255, 62, 62, 0.05); transform: translateY(-3px); }
+        .plan-card.active { border-color: var(--accent); background: rgba(255, 62, 62, 0.1); box-shadow: 0 0 20px rgba(255, 62, 62, 0.2); }
+        
+        .plan-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+        .plan-title { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; }
+        .plan-price { font-weight: 900; color: var(--accent); font-size: 1.3rem; }
+        
+        .feature-list { list-style: none; margin-top: 10px; }
+        .feature-list li { 
+            font-size: 0.85rem; 
+            color: var(--muted); 
+            margin-bottom: 6px; 
+            padding-left: 18px; 
+            position: relative; 
+        }
+        .feature-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+        .plan-card.active .feature-list li { color: #eee; }
+
+        .badge {
+            font-size: 0.7rem;
+            background: #222;
+            color: var(--gold);
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
 
         .btn {
             display: block; width: 100%; padding: 20px; margin-top: 20px;
@@ -80,16 +126,14 @@
         .crypto-dropdowns details { background: #1a1a1a; margin-bottom: 10px; border-radius: 8px; border: 1px solid #333; overflow: hidden; }
         .crypto-dropdowns summary { padding: 15px; cursor: pointer; font-weight: bold; list-style: none; display: flex; justify-content: space-between; transition: 0.3s; }
         .crypto-dropdowns summary:hover { background: rgba(255, 62, 62, 0.1); color: var(--accent); }
-        .crypto-item { background: #000; padding: 15px; font-family: monospace; font-size: 0.85rem; border-top: 1px solid #333; word-break: break-all; color: #00ff00; position: relative; }
+        .crypto-item { background: #000; padding: 15px; font-family: monospace; font-size: 0.85rem; border-top: 1px solid #333; word-break: break-all; color: var(--success); position: relative; }
         
         .donation-dropdown { margin-top: 20px; border: 1px dashed #444 !important; }
         .donation-option { padding: 15px; border-bottom: 1px solid #222; }
         .donation-option span { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; display: block; margin-bottom: 5px; }
-        .donation-option strong { color: #00ff00; font-family: monospace; font-size: 0.8rem; word-break: break-all; cursor: pointer; }
-        .donation-option strong:hover { color: #fff; }
+        .donation-option strong { color: var(--success); font-family: monospace; font-size: 0.8rem; word-break: break-all; cursor: pointer; }
 
         footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
-        
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
@@ -102,7 +146,7 @@
         <div class="header">
             <div class="logo">GLOWNET</div>
             <h1>Request Private Access</h1>
-            <p style="color: var(--muted); margin-top: 10px;">Fill in the shit below to activate your vault access.</p>
+            <p style="color: var(--muted); margin-top: 10px;">Configure your terminal for encrypted stream delivery.</p>
         </div>
 
         <div class="card">
@@ -118,8 +162,8 @@
                     <option>United Kingdom</option>
                     <option>United States</option>
                     <option>Germany</option>
-                    <option>Zimbabwe</option>
-                </select>
+                    <option>Netherlands</option>
+                    </select>
             </label>
 
             <label>
@@ -133,30 +177,58 @@
                 </select>
             </label>
 
-            <p style="font-weight: bold; margin-bottom: 10px;">Select Your Plan</p>
+            <p style="font-weight: bold; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent);">Select Service Tier</p>
+            
             <div class="plan-options">
                 <div class="plan-card" onclick="selectPlan('Standard', '€100')">
-                    <div><strong>Standard Plan</strong><br><small style="color: var(--muted);">10k+ Channels • 250GB Cloud</small></div>
-                    <span class="price">€100/yr</span>
+                    <div class="plan-header">
+                        <span class="plan-title">Standard Vault</span>
+                        <span class="plan-price">€100/yr</span>
+                    </div>
+                    <ul class="feature-list">
+                        <li>10,000+ Live Channels</li>
+                        <li>Full HD Buffer-free streaming</li>
+                        <li>365-Day Catch-up Access</li>
+                        <li>250GB Cloud Storage</li>
+                    </ul>
+                    <div class="badge">Netflix • Disney+ • Prime</div>
                 </div>
+
                 <div class="plan-card" onclick="selectPlan('Premium', '€120')">
-                    <div><strong>Premium Plan</strong><br><small style="color: var(--muted);">21k+ Channels • 1TB Cloud • 4K</small></div>
-                    <span class="price">€120/yr</span>
+                    <div class="plan-header">
+                        <span class="plan-title">Sovereign Premium</span>
+                        <span class="plan-price">€120/yr</span>
+                    </div>
+                    <ul class="feature-list">
+                        <li>21,000+ Live Channels (4K UHD)</li>
+                        <li>Private Stream Routing</li>
+                        <li>Account Sharing Allowed</li>
+                        <li>1TB Cloud Storage</li>
+                    </ul>
+                    <div class="badge">All Standard + Adult Premium</div>
                 </div>
-                <div class="plan-card" onclick="selectPlan('Trial', '€25')">
-                    <div><strong>Trial Plan</strong><br><small style="color: var(--muted);">4 Weeks • One-time use</small></div>
-                    <span class="price">€25</span>
+
+                <div class="plan-card trial" onclick="selectPlan('Trial', '€25')">
+                    <div class="plan-header">
+                        <span class="plan-title">4-Week Trial</span>
+                        <span class="plan-price">€25</span>
+                    </div>
+                    <ul class="feature-list">
+                        <li>3,000+ Channels for testing</li>
+                        <li>Limited VOD Access</li>
+                        <li>Not valid during major sports/holidays</li>
+                    </ul>
                 </div>
             </div>
 
-            <p style="color:var(--gold); font-size:0.95rem; margin-top: 15px; font-weight: bold; text-align: center;">
-                Pay Before pressing the check payment button
+            <p style="color:var(--gold); font-size:0.85rem; margin-top: 15px; font-weight: bold; text-align: center; border: 1px solid rgba(216, 200, 160, 0.2); padding: 10px; border-radius: 8px;">
+                ⚠️ ALERT: PAYMENT MUST BE VERIFIED ON-CHAIN BEFORE PRESSING CHECK STATUS
             </p>
-            <button class="btn" onclick="sendOrder()">Check Payment status</button>
+            <button class="btn" onclick="sendOrder()">Verify Payment & Activate</button>
         </div>
 
         <div class="card payment-info">
-            <h3 style="color: var(--accent); margin-bottom: 15px;">CRYPTO ONLY PAYMENT</h3>
+            <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 0.9rem; letter-spacing: 2px;">ENCRYPTED WALLET ADDRESSES</h3>
             
             <div class="crypto-dropdowns">
                 <details>
@@ -169,36 +241,18 @@
                 </details>
 
                 <details class="donation-dropdown">
-                    <summary>Select another cryptocurrency</summary>
-                    
+                    <summary>Show Alt Coins (ETH/SOL/LTC)</summary>
                     <div class="donation-option">
-                        <span>Secondary Bitcoin Address:</span>
-                        <strong onclick="copyValue('bc1qlgqjcjtusy9fut7zm84c43zelc30fz3zxfe9rv')">bc1qlgqjcjtusy9fut7zm84c43zelc30fz3zxfe9rv</strong>
-                    </div>
-
-                    <div class="donation-option">
-                        <span>Nano:</span>
-                        <strong onclick="copyValue('nano_1dq3eh46jertoza3coujpr1h3dhhrwyofc3dk9y8ho5gf1yph74jhxi5b87i')">nano_1dq3eh46jertoza3coujpr1h3dhhrwyofc3dk9y8ho5gf1yph74jhxi5b87i</strong>
-                    </div>
-
-                    <div class="donation-option">
-                        <span>Bitcoin Cash:</span>
-                        <strong onclick="copyValue('bitcoincash:qz5l3cw370xxh22r03s3us97e0h33emagczc949p9a')">bitcoincash:qz5l3cw370xxh22r03s3us97e0h33emagczc949p9a</strong>
-                    </div>
-
-                    <div class="donation-option">
-                        <span>Litecoin:</span>
-                        <strong onclick="copyValue('ltc1q7ptrmg0n9y3af5dyxawwe8ugjl4l990f5rnn78')">ltc1q7ptrmg0n9y3af5dyxawwe8ugjl4l990f5rnn78</strong>
-                    </div>
-
-                    <div class="donation-option">
-                        <span>Ethereum:</span>
+                        <span>Ethereum (ERC20):</span>
                         <strong onclick="copyValue('0xb7a8C2deecAE937a1c671F7b2FD4c7ae024aE77e')">0xb7a8C2deecAE937a1c671F7b2FD4c7ae024aE77e</strong>
                     </div>
-
                     <div class="donation-option">
                         <span>Solana:</span>
                         <strong onclick="copyValue('BKBiRQNpYohE1AQkD4KHt5KHQEFVqttdoJR8F4zzz4AC')">BKBiRQNpYohE1AQkD4KHt5KHQEFVqttdoJR8F4zzz4AC</strong>
+                    </div>
+                    <div class="donation-option">
+                        <span>Litecoin:</span>
+                        <strong onclick="copyValue('ltc1q7ptrmg0n9y3af5dyxawwe8ugjl4l990f5rnn78')">ltc1q7ptrmg0n9y3af5dyxawwe8ugjl4l990f5rnn78</strong>
                     </div>
                 </details>
             </div>
@@ -212,7 +266,7 @@
         <div id="statusBox" style="background: #111; border: 1px solid var(--accent); padding: 40px; border-radius: 20px; max-width: 500px; width: 100%;">
             <div class="spinner" style="width: 50px; height: 50px; border: 5px solid #222; border-top: 5px solid var(--accent); border-radius: 50%; margin: 0 auto 20px; animation: spin 1s linear infinite;"></div>
             <h2 id="statusTitle" style="text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Awaiting Payment</h2>
-            <div id="console" style="background: #000; padding: 15px; border-radius: 10px; text-align: left; font-family: monospace; font-size: 0.75rem; color: #00ff00; height: 140px; overflow: hidden; border: 1px solid #222;"></div>
+            <div id="console" style="background: #000; padding: 15px; border-radius: 10px; text-align: left; font-family: monospace; font-size: 0.75rem; color: var(--success); height: 140px; overflow: hidden; border: 1px solid #222;"></div>
         </div>
     </div>
 
