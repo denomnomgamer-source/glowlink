@@ -135,6 +135,23 @@
         .donation-option span { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; display: block; margin-bottom: 5px; }
         .donation-option strong { color: var(--success); font-family: monospace; font-size: 0.8rem; word-break: break-all; cursor: pointer; }
 
+        /* Fix the banner size */
+.glow-links-banned {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.banned-gif {
+    width: 100%; /* This makes it span the whole card width */
+    max-width: 100%; 
+    height: auto; /* Keeps the proportions so it doesn't look stretched and shitty */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+}
+
         footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
@@ -556,6 +573,7 @@
 </body>
 
 </html>
+
 
 
 
