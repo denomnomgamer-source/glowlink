@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowMarket | Deepweb Links & GlowTV Private IPTV</title>
+<meta name="description" content="Get your orders fast and discretely - The best collection of Darkweb links = and GlowTV IPTV Services - content. Updated daily.">
+    <link rel="icon" type="image/png" href="the-glow-network.png">
   <title>GlowLinks | Fast & Discreet Delivery</title>
-  <meta name="description" content="Get your orders fast and discreetly with GlowLinks. Secure crypto payments accepted.">
+  <meta name="description" content="Get your orders fast and discretely with Glowmarket. Secure crypto payments accepted.">
   <style>
     :root {
       --accent: #ff3e3e;
@@ -117,18 +120,59 @@
     .donation-option span { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; display: block; margin-bottom: 5px; }
     .donation-option strong { color: var(--success); font-family: monospace; font-size: 0.8rem; word-break: break-all; }
 
-    .bottom-images {
-      display: flex;
-      gap: 15px;
+    /* NEW GALLERY STYLES */
+    .bottom-gallery-wrapper {
       margin-top: 30px;
-      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
     }
-    .bottom-images img {
-      width: 45%;
-      max-width: 300px;
+
+    .image-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      width: 100%;
+    }
+
+    .image-grid-3 img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
       border-radius: 12px;
       border: 1px solid #333;
       filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+      transition: 0.3s;
+    }
+
+    .image-grid-3 img:hover {
+        border-color: var(--accent);
+    }
+
+    #extraGallery {
+      display: none; /* Hidden by default */
+      margin-top: 15px;
+    }
+
+    .show-more-btn {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid #333;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .show-more-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(255, 62, 62, 0.05);
     }
 
     footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
@@ -143,7 +187,7 @@
 
   <div class="container">
     <div class="header">
-      <div class="logo">GLOWLINKS</div>
+      <div class="logo">Glow-Market</div>
       <h1>Secure Checkout</h1>
     </div>
 
@@ -166,24 +210,25 @@
         <option value="ethereum">Ethereum (ETH)</option>
         <option value="solana">Solana (SOL)</option>
         <option value="litecoin">Litecoin (LTC)</option>
+        <option value="Bitcoin Cash (BTC Cash)">Bitcoin Cash (BTC Cash)</option>
+        <option value="Nano">Nano</option>
       </select>
 
       <label for="shipping">Shipping Address</label>
       <input type="text" id="shipping" placeholder="Street, City, Zip Code">
 
-      <label for="country">Country</label>
-      <select id="country">
-        <option value="usa">USA</option>
-        <option value="canada">Canada</option>
-        <option value="uk">UK</option>
-        <option value="germany">Germany</option>
-        <option value="france">France</option>
-        <option value="netherlands">Netherlands</option>
-        <option value="italy">Italy</option>
-        <option value="spain">Spain</option>
-        <option value="australia">Australia</option>
-        <option>Other (Worldwide)</option>
-      </select>
+     <label for="country">Country</label>
+<select id="country">
+  <option value="usa">USA</option>
+  <option value="canada">Canada</option>
+  <option value="uk">UK</option>
+  <option value="germany">Germany</option>
+  <option value="france">France</option>
+  <option value="netherlands">Netherlands</option>
+  <option value="italy">Italy</option>
+  <option value="spain">Spain</option>
+  <option value="australia">Australia</option>
+  </select>
 
       <div class="plan-options" id="productGrid">
         <div class="plan-card active product-item" onclick="selectPlan(this)">
@@ -230,11 +275,33 @@
 
               <div class="plan-card product-item" onclick="selectPlan(this)">
                 <div class="plan-header">
+                  <div class="plan-title">MDMA powder per bag PER GRM  each capsule FENT FREE</div>
+                  <div class="plan-price">$30</div>
+                </div>
+                <ul class="feature-list">
+                  <li>Xanax Alprazolam 1mg</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
                   <div class="plan-title">Oxy 24 PER BOX 15mg each capsule FENT FREE</div>
-                  <div class="plan-price">$90</div>
+                  <div class="plan-price">$80</div>
                 </div>
                 <ul class="feature-list">
                   <li>Oxycodone HCI 15mg</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Dutch Made XTC 20 PER BOX each capsule FENT FREE</div>
+                  <div class="plan-price">$6 per pill</div>
+                </div>
+                <ul class="feature-list">
+                  <li>xtc (sky press )</li>
                   <li>FREE TEST STRIPS</li>
                 </ul>
               </div>
@@ -249,30 +316,43 @@
       <div style="margin-top: 25px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid #333;">
         <p style="margin-bottom: 15px;">
           <span style="color:#ffd700; font-size: 0.8rem; text-transform: uppercase;">Bitcoin Wallet:</span><br>
-          <strong style="color: var(--success); font-family: monospace; font-size: 0.85rem; word-break: break-all;">bc1qkxgmvlhhv46h93r55jaltxp4955yljmdflftcv</strong>
+          <strong style="color: var(--success); font-family: monospace; font-size: 0.85rem; word-break: break-all;">bc1qjrgraxqa58lmlvruzdqmmx0jan59ztzyy8uym7</strong>
         </p>
 
         <p>
           <span style="color:#ffd700; font-size: 0.8rem; text-transform: uppercase;">Monero XMR Wallet:</span><br>
-          <strong style="color: var(--success); font-family: monospace; font-size: 0.85rem; word-break: break-all;">895muW6JBhGRjvN8r9J8uZBU6qrhNiLoMJmKitcwGsDyAjC8jVjsYtfbF2NK3SnfH777VjZ952ZCN2k22VzosbCRALoiEhA</strong>
+          <strong style="color: var(--success); font-family: monospace; font-size: 0.85rem; word-break: break-all;">82pgDXrEBCmFhPG6ezqJ533mPTSAjqC1V2obA2d5xU2Fd27PGaiNNF3jSvGQJibJPkSP84VrcQrKg84SnqQNWuobLZdfJXb</strong>
         </p>
 
         <details class="donation-dropdown">
           <summary>View other accepted coins</summary>
           <div class="donation-option">
-            <span>Ethereum:</span>
+            <span>Ethereum (ETH):</span>
             <strong>0xb7a8C2deecAE937a1c671F7b2FD4c7ae024aE77e</strong>
           </div>
           <div class="donation-option">
-            <span>Solana:</span>
+            <span>Litecoin (LTC):</span>
+            <strong>ltc1qdkvm5ur9vf2e9jnlxnpd52c6kgy2sukd456kwv</strong>
+          </div>
+          <div class="donation-option">
+            <span>Solana (SOL):</span>
             <strong>BKBiRQNpYohE1AQkD4KHt5KHQEFVqttdoJR8F4zzz4AC</strong>
           </div>
         </details>
       </div>
 
-      <div class="bottom-images">
-        <img src="tramadol.png" alt="Tramadol">
-        <img src="valium.jpg" alt="Valium">
+      <div class="bottom-gallery-wrapper">
+        <div class="image-grid-3">
+          <img src="tramadol.png" alt="Tramadol">
+          <img src="valium.jpg" alt="Valium">
+          <img src="xanax.jpg" alt="Xanax"> </div>
+
+        <div id="extraGallery" class="image-grid-3">
+          <img src="Oxycodone.jpg" alt="Oxy">
+          <img src="mdma.jpg" alt="Mdma">
+        </div>
+
+        <button id="showBtn" class="show-more-btn" onclick="showMoreImages()">Show More Images</button>
       </div>
     </div>
   </div>
@@ -282,6 +362,11 @@
   </footer>
 
   <script>
+    function showMoreImages() {
+      document.getElementById('extraGallery').style.display = 'grid';
+      document.getElementById('showBtn').style.display = 'none';
+    }
+
     function filterProducts() {
       const input = document.getElementById('productSearch').value.toLowerCase();
       const products = document.querySelectorAll('.product-item');
@@ -291,7 +376,6 @@
         const title = product.querySelector('.plan-title').innerText.toLowerCase();
         if (title.includes(input)) {
           product.style.display = "flex";
-          // Open the "View More" automatically if a hidden product matches
           if (input.length > 0 && product.closest('details')) {
               viewMore.open = true;
           }
@@ -320,3 +404,5 @@
       alert(`✅ Order Received!\n\nProduct: ${plan}\nQuantity: ${quantity}\nAddress: ${shipping}\n\nPlease send payment to the correct wallet below.`);
     }
   </script>
+</body>
+</html>
