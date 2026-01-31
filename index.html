@@ -29,13 +29,13 @@
             color: #fff;
             display: flex; flex-direction: column; align-items: center;
             min-height: 100vh; overflow-x: hidden;
-            padding-top: 3rem; /* Space for the ticker */
+            padding-top: 3rem; /* Space for the alert ticker */
         }
 
-        /* Shifting this down so it doesn't collide with the alert bar */
+        /* Fixed collision: rating moved down to avoid ticker */
         .rating { 
             position: absolute; 
-            top: 4rem; 
+            top: 4.5rem; 
             left: 20px; 
             border: 2px solid #fff; 
             padding: 4px 12px; 
@@ -76,7 +76,110 @@
         .btn-iptv { background: var(--glow-red); color: #fff; padding: 18px 30px; font-size: 1.1rem; font-weight: 800; border-radius: 5px; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; border: none; cursor: pointer; }
         .btn-iptv:hover { transform: scale(1.05); background: #cc0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
 
-        /* The PGP button you wanted to be RED */
+.donation-block {
+        background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(5, 5, 5, 1));
+        border: 1px solid rgba(255, 0, 0, 0.2);
+        padding: 40px;
+        border-radius: 20px;
+        margin: 50px auto;
+        text-align: left;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Subtle red glow behind the title */
+    .donation-title {
+        color: #fff;
+        font-family: 'Archivo Black', sans-serif;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+        text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    }
+
+    .wallet-row {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: 0.3s;
+    }
+
+    .wallet-row:hover {
+        background: rgba(255, 0, 0, 0.05);
+        border-color: rgba(255, 0, 0, 0.3);
+    }
+
+    .wallet-label {
+        color: var(--gold-premium);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 900;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .wallet-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    .wallet-code {
+        flex-grow: 1;
+        background: #000;
+        padding: 12px 15px;
+        border: 1px solid #222;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85rem;
+        color: #00ff41; /* Matrix green or Gold? Let's go Matrix green for that hacker feel */
+        word-break: break-all;
+        box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .copy-btn {
+        background: var(--glow-red);
+        color: #fff;
+        border: none;
+        padding: 0 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.7rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        transition: 0.2s;
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .copy-btn:hover {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+    }
+
+    /* Styling for the "Other Cryptos" dropdown */
+    .donation-dropdown summary {
+        color: #888;
+        font-size: 0.9rem;
+        padding: 10px;
+        border-top: 1px solid #222;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+    .donation-dropdown summary:hover {
+        color: #fff;
+    }
+
+    .donation-option {
+        margin-top: 15px;
+        padding-left: 10px;
+        border-left: 2px solid var(--glow-red);
+    }
+
+        /* The RED PGP button */
         .btn-pgp { 
             background: var(--glow-red); 
             color: #fff; 
@@ -101,6 +204,7 @@
         .wallet-container { display: flex; gap: 5px; margin-top: 5px; }
         .wallet-code { flex-grow: 1; background: #000; padding: 10px; border: 1px solid #444; border-radius: 4px; font-family: monospace; font-size: 0.8rem; color: #ccc; word-break: break-all; }
         .copy-btn { background: #333; color: #fff; border: none; padding: 0 12px; border-radius: 4px; cursor: pointer; font-size: 0.65rem; text-transform: uppercase; font-weight: 800; }
+        .donation-option { margin-top: 15px; }
 
         .alert-ticker {
           position: fixed;
@@ -137,6 +241,8 @@
 
         @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
         .footer { margin: 40px 0; color: #333; font-size: 0.7rem; letter-spacing: 2px; text-align: center; }
+        
+        summary { color: var(--gold-premium); cursor: pointer; font-weight: bold; margin-top: 10px; outline: none; }
     </style>
 </head>
 <body>
@@ -162,7 +268,7 @@
 <div class="hero">
     <h1 id="title">GLOW</h1>
     <div class="meta-data">
-        <span class="match">99% Match</span> 2026 | 1 Season | <strong>Live Anonymity</strong>
+        <span class="match">99% Matchs</span> 2012-2026 | Always Active | <strong>Live Anonymity</strong>
     </div>
     
     <p style="color:var(--gold-premium); font-size:0.85rem; margin-top: 15px; font-weight: bold; text-align: center; border: 1px solid rgba(216, 200, 160, 0.2); padding: 10px; border-radius: 8px;">
@@ -188,28 +294,65 @@
         </a>
     </div>
 
-    <a href="meds.html" class="btn-iptv">
+    <a href="meds.html" class="btn-iptv" style="margin-top: 15px;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
-        Buy here your "Fun" meds
+        Buy here your "Fun" meds, research chemicals, psychedelics, and more
     </a>
 
-    <div class="donation-block" style="margin-top: 40px;">
-        <h2 class="donation-title">Support the Network</h2>
-        <div class="wallet-row">
-            <span class="wallet-label">Bitcoin BTC:</span>
-            <div class="wallet-container">
-                <div class="wallet-code" id="btc-main">bc1qkxgmvlhhv46h93r55jaltxp4955yljmdflftcv</div>
-                <button class="copy-btn" onclick="copyText('btc-main')">Copy</button>
-            </div>
-        </div>
-        <div class="wallet-row">
-            <span class="wallet-label">Monero XMR:</span>
-            <div class="wallet-container">
-                <div class="wallet-code" id="xmr-main">895muW6JBhGRjvN8r9J8uZBU6qrhNiLoMJmKitcwGsDyAjC8jVjsYtfbF2NK3SnfH777VjZ952ZCN2k22VzosbCRALoiEhA</div>
-                <button class="copy-btn" onclick="copyText('xmr-main')">Copy</button>
-            </div>
+   <div class="donation-block">
+    <h2 class="donation-title">Secure the Network</h2>
+    
+    <div class="wallet-row">
+        <span class="wallet-label">Bitcoin (BTC)</span>
+        <div class="wallet-container">
+            <div class="wallet-code" id="btc-main">bc1q8uvg2yy9ttry97kgg46p8fakmdx7jnda2fwnj8</div>
+            <button class="copy-btn" onclick="copyText('btc-main')">Copy</button>
         </div>
     </div>
+
+    <div class="wallet-row">
+        <span class="wallet-label">Monero (XMR) - Recommended</span>
+        <div class="wallet-container">
+            <div class="wallet-code" id="xmr-main">82pgDXrEBCmFhPG6ezqJ533mPTSAjqC1V2obA2d5xU2Fd27PGaiNNF3jSvGQJibJPkSP84VrcQrKg84SnqQNWuobLZdfJXb</div>
+            <button class="copy-btn" onclick="copyText('xmr-main')">Copy</button>
+        </div>
+    </div>
+
+    <details class="donation-dropdown">
+        <summary>View Alternative Coins</summary>
+        
+        <div class="donation-option">
+            <span class="wallet-label">Secondary BTC Cash:</span>
+            <div class="wallet-container">
+                <div class="wallet-code" id="btc-sec">bitcoincash:qz5l3cw370xxh22r03s3us97e0h33emagczc949p9a</div>
+                <button class="copy-btn" onclick="copyText('btc-sec')">Copy</button>
+            </div>
+        </div>
+
+        <div class="donation-option">
+            <span class="wallet-label">Solana (SOL):</span>
+            <div class="wallet-container">
+                <div class="wallet-code" id="sol">BKBiRQNpYohE1AQkD4KHt5KHQEFVqttdoJR8F4zzz4AC</div>
+                <button class="copy-btn" onclick="copyText('sol')">Copy</button>
+            </div>
+        </div>
+
+        <div class="donation-option">
+            <span class="wallet-label">Nano (XNO):</span>
+            <div class="wallet-container">
+                <div class="wallet-code" id="sol">nano_1dq3eh46jertoza3coujpr1h3dhhrwyofc3dk9y8ho5gf1yph74jhxi5b87i</div>
+                <button class="copy-btn" onclick="copyText('sol')">Copy</button>
+            </div>
+        </div>
+
+        <div class="donation-option">
+            <span class="wallet-label">Litecoin (LTC):</span>
+            <div class="wallet-container">
+                <div class="wallet-code" id="ltc">ltc1q7ptrmg0n9y3af5dyxawwe8ugjl4l990f5rnn78</div>
+                <button class="copy-btn" onclick="copyText('ltc')">Copy</button>
+            </div>
+        </div>
+    </details>
 </div>
 
 <a href="http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/" class="glow-links-banned">
@@ -217,7 +360,7 @@
 </a>
 
 <div class="footer">
-    GLOW-NETWORK © 2026. <br>
+    GLOW-NETWORK © 2012 - 2026. <br>
     <a href="pgp.txt" class="btn-pgp">VIEW DOMAINS & PGP</a>
 </div>
 
