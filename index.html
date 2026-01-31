@@ -29,11 +29,23 @@
             color: #fff;
             display: flex; flex-direction: column; align-items: center;
             min-height: 100vh; overflow-x: hidden;
+            padding-top: 3rem; /* Space for the ticker */
         }
 
-        .rating { position: absolute; top: 20px; left: 20px; border: 2px solid #fff; padding: 4px 12px; font-size: 1rem; font-weight: 900; letter-spacing: 1px; background: rgba(0,0,0,0.5); z-index: 10; }
+        /* Shifting this down so it doesn't collide with the alert bar */
+        .rating { 
+            position: absolute; 
+            top: 4rem; 
+            left: 20px; 
+            border: 2px solid #fff; 
+            padding: 4px 12px; 
+            font-size: 1rem; 
+            font-weight: 900; 
+            letter-spacing: 1px; 
+            background: rgba(0,0,0,0.5); 
+            z-index: 10; 
+        }
         
-        /* Changed naming to bypass blockers */
         .top-nav-zone { margin-top: 80px; width: 90%; max-width: 1400px; padding-bottom: 20px; }
         .zone-label { font-size: 0.8rem; color: var(--gold-premium); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; text-align: center; font-weight: 900; }
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
@@ -43,7 +55,7 @@
             overflow: hidden; 
             border: 2px solid #222; 
             transition: all 0.5s ease; 
-            display: block; /* Makes the whole area clickable */
+            display: block; 
         }
         .clickable-feature:hover { border-color: var(--glow-red); transform: translateY(-5px); }
         .clickable-feature img { width: 100%; height: auto; display: block; }
@@ -64,6 +76,24 @@
         .btn-iptv { background: var(--glow-red); color: #fff; padding: 18px 30px; font-size: 1.1rem; font-weight: 800; border-radius: 5px; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; border: none; cursor: pointer; }
         .btn-iptv:hover { transform: scale(1.05); background: #cc0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
 
+        /* The PGP button you wanted to be RED */
+        .btn-pgp { 
+            background: var(--glow-red); 
+            color: #fff; 
+            padding: 10px 20px; 
+            font-size: 0.8rem; 
+            font-weight: 800; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            margin-top: 20px; 
+            transition: 0.3s;
+            border: none;
+        }
+        .btn-pgp:hover { background: #cc0000; transform: translateY(-2px); }
+
         .donation-block { background: rgba(255, 255, 255, 0.05); border: 1px solid #333; padding: 30px; border-radius: 12px; margin: 0 auto; text-align: left; }
         .donation-title { color: var(--gold-premium); font-family: 'Archivo Black', sans-serif; text-transform: uppercase; font-size: 1.2rem; margin: 0 0 15px; }
         .wallet-row { margin-bottom: 15px; }
@@ -72,180 +102,156 @@
         .wallet-code { flex-grow: 1; background: #000; padding: 10px; border: 1px solid #444; border-radius: 4px; font-family: monospace; font-size: 0.8rem; color: #ccc; word-break: break-all; }
         .copy-btn { background: #333; color: #fff; border: none; padding: 0 12px; border-radius: 4px; cursor: pointer; font-size: 0.65rem; text-transform: uppercase; font-weight: 800; }
 
+        .alert-ticker {
+          position: fixed;
+          top: 0; left: 0; right: 0;
+          height: 3rem;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          background: linear-gradient(180deg, #1f1200, #120a00);
+          border-bottom: 1px solid rgba(255,153,51,0.35);
+          box-shadow: 0 10px 24px rgba(0,0,0,0.5), 0 0 18px rgba(255,153,51,0.45);
+          z-index: 9999;
+          backdrop-filter: blur(6px);
+        }
+        .alert-ticker__track {
+          display: inline-flex;
+          gap: 3rem;
+          white-space: nowrap;
+          will-change: transform;
+          animation: tickerScroll 125s linear infinite;
+        }
+        .alert-ticker__item {
+          color: #ffb15a;
+          font-weight: 700;
+          letter-spacing: 0.02em;
+          text-shadow: 0 0 8px rgba(255,153,51,0.45);
+          font-size: 0.95rem;
+        }
+        @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
         .glow-links-banned { margin: 40px 0; width: 80%; max-width: 728px; display: block; }
         .banned-gif { width: 100%; border-radius: 10px; border: 2px solid #222; transition: all 0.3s; }
         .banned-gif:hover { border-color: var(--glow-red); box-shadow: 0 0 20px var(--glow-red); transform: scale(1.01); }
 
         @keyframes pulse-glow { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); } }
-        .footer { margin: 40px 0; color: #333; font-size: 0.7rem; letter-spacing: 2px; }
+        .footer { margin: 40px 0; color: #333; font-size: 0.7rem; letter-spacing: 2px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div class="rating">~TGN The Glow-Network.</div>
+<div class="alert-ticker">
+  <div class="alert-ticker__track">
+    <span class="alert-ticker__item">BE AWARE OF SCAMS, OFFICIAL CLEARNET ADDRESS: https://glowlinks.net/ • Verify, clones are active — bookmark the real gateway.</span>
+    <span class="alert-ticker__item">BE AWARE OF SCAMS, OFFICIAL ONION MIRROR: http://glowprxybcdav3u5zwdjpha4rab2uhj66vyuq6gxg2kfzimqejp2evid.onion • Verify clones are active.</span>
+  </div>
+</div>
 
-    <div class="top-nav-zone">
-        <div class="zone-label">Featured Global Partners</div>
-        <div class="feature-grid" id="shuffle-box">
-            <a href="https://stake.com/?c=ELPw3Qd3" target="_blank" class="clickable-feature"><img src="stake.gif" alt="Stake"></a>
-            <a href="https://r.adbtc.top/4143298" target="_blank" class="clickable-feature"><img src="BTC.gif" alt="BTC"></a>
-            <a href="https://stake.com/?c=ELPw3Qd3" target="_blank" class="clickable-feature"><img src="stake1.gif" alt="Stake VIP"></a>
-        </div>
+<div class="rating">~TGN The Glow-Network.</div>
+
+<div class="top-nav-zone">
+    <div class="zone-label">Featured Global Partners</div>
+    <div class="feature-grid" id="shuffle-box">
+        <a href="https://stake.com/?c=ELPw3Qd3" target="_blank" class="clickable-feature"><img src="stake.gif" alt="Stake"></a>
+        <a href="https://r.adbtc.top/4143298" target="_blank" class="clickable-feature"><img src="BTC.gif" alt="BTC"></a>
+        <a href="https://stake.com/?c=ELPw3Qd3" target="_blank" class="clickable-feature"><img src="stake1.gif" alt="Stake VIP"></a>
+    </div>
+</div>
+
+<div class="hero">
+    <h1 id="title">GLOW</h1>
+    <div class="meta-data">
+        <span class="match">99% Match</span> 2026 | 1 Season | <strong>Live Anonymity</strong>
+    </div>
+    
+    <p style="color:var(--gold-premium); font-size:0.85rem; margin-top: 15px; font-weight: bold; text-align: center; border: 1px solid rgba(216, 200, 160, 0.2); padding: 10px; border-radius: 8px;">
+        ⚠️ ALERT: Our <b>ONLY</b> Email Address for contact: NOVOHC-499@proton.me
+    </p>
+    
+    <div class="btn-row">
+        <details class="mirror-dropdown">
+            <summary class="mirror-summary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                ACCESS MIRROR FOR DEEPWEB LINKS
+            </summary>
+            <div class="mirror-list">
+                <a href="http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/">Primary Onion</a>
+                <a href="http://mirrorbe3bbixahkrrbrovdyhuwash67xwoxt2xwia273ryqkwzzu6id.onion/">Mirror 1</a>
+                <a href="http://glowprxybcdav3u5zwdjpha4rab2uhj66vyuq6gxg2kfzimqejp2evid.onion/">Mirror 2</a>
+            </div>
+        </details>
+
+        <a href="glowtv.html" class="btn-iptv">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+            OR TO BUY IPTV
+        </a>
     </div>
 
-    <div class="hero">
-        <h1 id="title">GLOW</h1>
-        <div class="meta-data">
-            <span class="match">99% Match</span> 2026 | 1 Season | <strong>Live Anonymity</strong>
-        </div>
-        
-        <p style="color:var(--gold); font-size:0.85rem; margin-top: 15px; font-weight: bold; text-align: center; border: 1px solid rgba(216, 200, 160, 0.2); padding: 10px; border-radius: 8px;">
-            ⚠️ ALERT: Our <b>ONLY</b> Email Address for contact: NOVOHC-499@proton.me
-        </p>
-        
-        <div class="btn-row">
-            <details class="mirror-dropdown">
-                <summary class="mirror-summary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-                    ACCESS MIRROR FOR DEEPWEB LINKS
-                </summary>
-                <div class="mirror-list">
-                    <a href="http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/">Primary Onion</a>
-                    <a href="http://mirrorbe3bbixahkrrbrovdyhuwash67xwoxt2xwia273ryqkwzzu6id.onion/">Mirror 1</a>
-                    <a href="http://glowprxybcdav3u5zwdjpha4rab2uhj66vyuq6gxg2kfzimqejp2evid.onion/">Mirror 2</a>
-                    <a href="http://mirrord5o2kqc3davlggrx43f5ecd4vvtkbzvykafhbucoixy7lmnkad.onion/">Mirror 3</a>
-                    <a href="http://relayylfp7trp6ixinokyuroi2r4n67ldsoxkq4ypoux2lgcijig4pid.onion/">Mirror 4</a>
-                </div>
-            </details>
-
-            <a href="glowtv.html" class="btn-iptv">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
-                OR LOOKING TO BUY IPTV
-            </a>
-        </div>
-              <a href="meds.html" class="btn-iptv">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
-                Buy here your "Fun" meds
-            </a>
-        </div>      
-
-       <div class="donation-block">
-            <h2 class="donation-title">Support the Network</h2>
-            
-            <div class="wallet-row">
-                <span class="wallet-label">Bitcoin BTC:</span>
-                <div class="wallet-container">
-                    <div class="wallet-code" id="btc-main">bc1qkxgmvlhhv46h93r55jaltxp4955yljmdflftcv</div>
-                    <button class="copy-btn" onclick="copyText('btc-main')">Copy</button>
-                </div>
-            </div>
-
-            <div class="wallet-row">
-                <span class="wallet-label">Monero XMR:</span>
-                <div class="wallet-container">
-                    <div class="wallet-code" id="xmr-main">895muW6JBhGRjvN8r9J8uZBU6qrhNiLoMJmKitcwGsDyAjC8jVjsYtfbF2NK3SnfH777VjZ952ZCN2k22VzosbCRALoiEhA</div>
-                    <button class="copy-btn" onclick="copyText('xmr-main')">Copy</button>
-                </div>
-            </div>
-
-            <details class="donation-dropdown">
-                <summary>Other Cryptocurrencies</summary>
-                
-                <div class="donation-option">
-                    <span class="wallet-label">Secondary BTC:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="btc-sec">bc1qlgqjcjtusy9fut7zm84c43zelc30fz3zxfe9rv</div>
-                        <button class="copy-btn" onclick="copyText('btc-sec')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Nano:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="nano">nano_1dq3eh46jertoza3coujpr1h3dhhrwyofc3dk9y8ho5gf1yph74jhxi5b87i</div>
-                        <button class="copy-btn" onclick="copyText('nano')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Bitcoin Cash:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="bch">bitcoincash:qz5l3cw370xxh22r03s3us97e0h33emagczc949p9a</div>
-                        <button class="copy-btn" onclick="copyText('bch')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Litecoin:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="ltc">ltc1q7ptrmg0n9y3af5dyxawwe8ugjl4l990f5rnn78</div>
-                        <button class="copy-btn" onclick="copyText('ltc')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Ethereum:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="eth">0xb7a8C2deecAE937a1c671F7b2FD4c7ae024aE77e</div>
-                        <button class="copy-btn" onclick="copyText('eth')">Copy</button>
-                    </div>
-                </div>
-
-                <div class="donation-option">
-                    <span class="wallet-label">Solana:</span>
-                    <div class="wallet-container">
-                        <div class="wallet-code" id="sol">BKBiRQNpYohE1AQkD4KHt5KHQEFVqttdoJR8F4zzz4AC</div>
-                        <button class="copy-btn" onclick="copyText('sol')">Copy</button>
-                    </div>
-                </div>
-            </details>
-        </div>
-    </div>
-
-    <a href="http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/" class="glow-links-banned">
-        <img src="Glowlinks-ad.gif" alt="BANNED" class="banned-gif">
+    <a href="meds.html" class="btn-iptv">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+        Buy here your "Fun" meds
     </a>
 
-    <div class="footer">
-        GLOW-NETWORK © 2026.
+    <div class="donation-block" style="margin-top: 40px;">
+        <h2 class="donation-title">Support the Network</h2>
+        <div class="wallet-row">
+            <span class="wallet-label">Bitcoin BTC:</span>
+            <div class="wallet-container">
+                <div class="wallet-code" id="btc-main">bc1qkxgmvlhhv46h93r55jaltxp4955yljmdflftcv</div>
+                <button class="copy-btn" onclick="copyText('btc-main')">Copy</button>
+            </div>
+        </div>
+        <div class="wallet-row">
+            <span class="wallet-label">Monero XMR:</span>
+            <div class="wallet-container">
+                <div class="wallet-code" id="xmr-main">895muW6JBhGRjvN8r9J8uZBU6qrhNiLoMJmKitcwGsDyAjC8jVjsYtfbF2NK3SnfH777VjZ952ZCN2k22VzosbCRALoiEhA</div>
+                <button class="copy-btn" onclick="copyText('xmr-main')">Copy</button>
+            </div>
+        </div>
     </div>
+</div>
 
-    <script>
-        function copyText(id) {
-            const text = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = event.target;
-                const originalText = btn.innerText;
-                btn.innerText = "COPIED!";
-                btn.style.background = "#46d369";
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.background = "#333";
-                }, 2000);
-            });
-        }
+<a href="http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/" class="glow-links-banned">
+    <img src="Glowlinks-ad.gif" alt="BANNED" class="banned-gif">
+</a>
 
-        const container = document.getElementById('shuffle-box');
-        function updateAds() {
-            const ads = Array.from(container.children);
-            for (let i = ads.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                container.appendChild(ads[j]);
-            }
-        }
-        setInterval(updateAds, 10000);
+<div class="footer">
+    GLOW-NETWORK © 2026. <br>
+    <a href="pgp.txt" class="btn-pgp">VIEW DOMAINS & PGP</a>
+</div>
 
-        const title = document.getElementById('title');
-        document.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth / 2 - e.pageX) / 30;
-            const y = (window.innerHeight / 2 - e.pageY) / 30;
-            title.style.transform = `translateX(${x}px) translateY(${y}px)`;
+<script>
+    function copyText(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "COPIED!";
+            btn.style.background = "#46d369";
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "#333";
+            }, 2000);
         });
-    </script>
+    }
+
+    const container = document.getElementById('shuffle-box');
+    function updateAds() {
+        const ads = Array.from(container.children);
+        for (let i = ads.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            container.appendChild(ads[j]);
+        }
+    }
+    setInterval(updateAds, 10000);
+
+    const title = document.getElementById('title');
+    document.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.pageX) / 30;
+        const y = (window.innerHeight / 2 - e.pageY) / 30;
+        title.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+</script>
 </body>
 </html>
-
-
-
-
-

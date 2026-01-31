@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GlowMarket | Fast & Discreet Delivery</title>
+  <title>GlowLinks | Fast & Discreet Delivery</title>
   <meta name="description" content="Get your orders fast and discreetly with GlowLinks. Secure crypto payments accepted.">
   <style>
     :root {
@@ -143,8 +143,12 @@
 
   <div class="container">
     <div class="header">
-      <div class="logo">Glow-Market</div>
+      <div class="logo">GLOWLINKS</div>
       <h1>Secure Checkout</h1>
+    </div>
+
+    <div class="card" style="margin-bottom: 20px; padding: 15px;">
+      <input type="text" id="productSearch" placeholder="Search for meds (e.g. Xanax, Valium)..." onkeyup="filterProducts()" style="margin-top: 0;">
     </div>
 
     <div class="card">
@@ -167,229 +171,76 @@
       <label for="shipping">Shipping Address</label>
       <input type="text" id="shipping" placeholder="Street, City, Zip Code">
 
-<label for="country">Country</label>
-<select id="country">
-  <option value="usa">USA</option>
-  <option value="canada">Canada</option>
-  <option value="uk">UK</option>
-  <option value="germany">Germany</option>
-  <option value="france">France</option>
-  <option value="netherlands">Netherlands</option>
-  <option value="italy">Italy</option>
-  <option value="spain">Spain</option>
-  <option value="australia">Australia</option>
-  
-  <option>Afghanistan</option>
-  <option>Albania</option>
-  <option>Algeria</option>
-  <option>Andorra</option>
-  <option>Angola</option>
-  <option>Antigua and Barbuda</option>
-  <option>Argentina</option>
-  <option>Armenia</option>
-  <option>Austria</option>
-  <option>Azerbaijan</option>
-  <option>Bahamas</option>
-  <option>Bahrain</option>
-  <option>Bangladesh</option>
-  <option>Barbados</option>
-  <option>Belarus</option>
-  <option>Belgium</option>
-  <option>Belize</option>
-  <option>Benin</option>
-  <option>Bhutan</option>
-  <option>Bolivia</option>
-  <option>Bosnia and Herzegovina</option>
-  <option>Botswana</option>
-  <option>Brazil</option>
-  <option>Brunei</option>
-  <option>Bulgaria</option>
-  <option>Burkina Faso</option>
-  <option>Burundi</option>
-  <option>Cabo Verde</option>
-  <option>Cambodia</option>
-  <option>Cameroon</option>
-  <option>Central African Republic</option>
-  <option>Chad</option>
-  <option>Chile</option>
-  <option>China</option>
-  <option>Colombia</option>
-  <option>Comoros</option>
-  <option>Congo (Republic)</option>
-  <option>Congo (Democratic Republic)</option>
-  <option>Costa Rica</option>
-  <option>Croatia</option>
-  <option>Cuba</option>
-  <option>Cyprus</option>
-  <option>Czech Republic</option>
-  <option>Denmark</option>
-  <option>Djibouti</option>
-  <option>Dominica</option>
-  <option>Dominican Republic</option>
-  <option>Ecuador</option>
-  <option>Egypt</option>
-  <option>El Salvador</option>
-  <option>Equatorial Guinea</option>
-  <option>Eritrea</option>
-  <option>Estonia</option>
-  <option>Eswatini</option>
-  <option>Ethiopia</option>
-  <option>Fiji</option>
-  <option>Finland</option>
-  <option>Gabon</option>
-  <option>Gambia</option>
-  <option>Georgia</option>
-  <option>Ghana</option>
-  <option>Greece</option>
-  <option>Grenada</option>
-  <option>Guatemala</option>
-  <option>Guinea</option>
-  <option>Guinea-Bissau</option>
-  <option>Guyana</option>
-  <option>Haiti</option>
-  <option>Honduras</option>
-  <option>Hungary</option>
-  <option>Iceland</option>
-  <option>India</option>
-  <option>Indonesia</option>
-  <option>Iran</option>
-  <option>Iraq</option>
-  <option>Ireland</option>
-  <option>Israel</option>
-  <option>Jamaica</option>
-  <option>Japan</option>
-  <option>Jordan</option>
-  <option>Kazakhstan</option>
-  <option>Kenya</option>
-  <option>Kiribati</option>
-  <option>Kuwait</option>
-  <option>Kyrgyzstan</option>
-  <option>Laos</option>
-  <option>Latvia</option>
-  <option>Lebanon</option>
-  <option>Lesotho</option>
-  <option>Liberia</option>
-  <option>Libya</option>
-  <option>Liechtenstein</option>
-  <option>Lithuania</option>
-  <option>Luxembourg</option>
-  <option>Madagascar</option>
-  <option>Malawi</option>
-  <option>Malaysia</option>
-  <option>Maldives</option>
-  <option>Mali</option>
-  <option>Malta</option>
-  <option>Marshall Islands</option>
-  <option>Mauritania</option>
-  <option>Mauritius</option>
-  <option>Mexico</option>
-  <option>Micronesia</option>
-  <option>Moldova</option>
-  <option>Monaco</option>
-  <option>Mongolia</option>
-  <option>Montenegro</option>
-  <option>Morocco</option>
-  <option>Mozambique</option>
-  <option>Myanmar</option>
-  <option>Namibia</option>
-  <option>Nauru</option>
-  <option>Nepal</option>
-  <option>New Zealand</option>
-  <option>Nicaragua</option>
-  <option>Niger</option>
-  <option>Nigeria</option>
-  <option>North Macedonia</option>
-  <option>Norway</option>
-  <option>Oman</option>
-  <option>Pakistan</option>
-  <option>Palau</option>
-  <option>Panama</option>
-  <option>Papua New Guinea</option>
-  <option>Paraguay</option>
-  <option>Peru</option>
-  <option>Philippines</option>
-  <option>Poland</option>
-  <option>Portugal</option>
-  <option>Qatar</option>
-  <option>Romania</option>
-  <option>Russia</option>
-  <option>Rwanda</option>
-  <option>Saint Kitts and Nevis</option>
-  <option>Saint Lucia</option>
-  <option>Saint Vincent and the Grenadines</option>
-  <option>Samoa</option>
-  <option>San Marino</option>
-  <option>Sao Tome and Principe</option>
-  <option>Saudi Arabia</option>
-  <option>Senegal</option>
-  <option>Serbia</option>
-  <option>Seychelles</option>
-  <option>Sierra Leone</option>
-  <option>Singapore</option>
-  <option>Slovakia</option>
-  <option>Slovenia</option>
-  <option>Solomon Islands</option>
-  <option>Somalia</option>
-  <option>South Africa</option>
-  <option>South Korea</option>
-  <option>South Sudan</option>
-  <option>Sri Lanka</option>
-  <option>Sudan</option>
-  <option>Suriname</option>
-  <option>Sweden</option>
-  <option>Switzerland</option>
-  <option>Syria</option>
-  <option>Tajikistan</option>
-  <option>Tanzania</option>
-  <option>Thailand</option>
-  <option>Timor-Leste</option>
-  <option>Togo</option>
-  <option>Tonga</option>
-  <option>Trinidad and Tobago</option>
-  <option>Tunisia</option>
-  <option>Turkey</option>
-  <option>Turkmenistan</option>
-  <option>Tuvalu</option>
-  <option>Uganda</option>
-  <option>Ukraine</option>
-  <option>United Arab Emirates</option>
-  <option>Uruguay</option>
-  <option>Uzbekistan</option>
-  <option>Vanuatu</option>
-  <option>Vatican City</option>
-  <option>Venezuela</option>
-  <option>Vietnam</option>
-  <option>Yemen</option>
-  <option>Zambia</option>
-  <option>Zimbabwe</option>
-</select>
+      <label for="country">Country</label>
+      <select id="country">
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+        <option value="uk">UK</option>
+        <option value="germany">Germany</option>
+        <option value="france">France</option>
+        <option value="netherlands">Netherlands</option>
+        <option value="italy">Italy</option>
+        <option value="spain">Spain</option>
+        <option value="australia">Australia</option>
+        <option>Other (Worldwide)</option>
+      </select>
 
-      <div class="plan-options">
-        <div class="plan-card active" onclick="selectPlan(this)">
+      <div class="plan-options" id="productGrid">
+        <div class="plan-card active product-item" onclick="selectPlan(this)">
           <div class="plan-header">
-            <div class="plan-title">valium 24 pack 10mg pills FENT FREE</div>
+            <div class="plan-title">valium 24 pack 15mg pills FENT FREE</div>
             <div class="plan-price">$25</div>
           </div>
           <ul class="feature-list">
             <li>Diazepam Teva 15mg</li>
             <li>FREE TEST STRIPS</li>
-            <li>Standard Quantity</li>
-            <li>Discreet Packaging</li>
             <li>Standard Shipping 5-13 days</li>
           </ul>
         </div>
 
-        <div class="plan-card" onclick="selectPlan(this)">
+        <div class="plan-card product-item" onclick="selectPlan(this)">
           <div class="plan-header">
             <div class="plan-title">Tramadol 24 PER BOX 50mg each capsule FENT FREE</div>
             <div class="plan-price">$40</div>
           </div>
-         <ul class="feature-list">
+          <ul class="feature-list">
             <li>Tramadol Sandoz 50mg</li>
             <li>FREE TEST STRIPS</li>
-            <li>Discreet Packaging</li>
-            <li>Ultra fast shipping Shipping 3-5 days</li>
+            <li>Fast Shipping 3-5 days</li>
           </ul>
+        </div>
+
+        <div style="grid-column: 1 / -1; margin-top: 10px;">
+          <details class="donation-dropdown" style="background: rgba(255,255,255,0.05); border: 1px dashed #444;">
+            <summary style="padding: 15px; cursor: pointer; color: #ff3e3e; font-weight: 900; text-align: center; list-style: none;">
+              + VIEW MORE PRODUCTS
+            </summary>
+            <div class="plan-options" style="padding: 20px 0;">
+              
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Xanax 24 PER BOX 1mg each capsule FENT FREE</div>
+                  <div class="plan-price">$18</div>
+                </div>
+                <ul class="feature-list">
+                  <li>Xanax Alprazolam 1mg</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Oxy 24 PER BOX 15mg each capsule FENT FREE</div>
+                  <div class="plan-price">$90</div>
+                </div>
+                <ul class="feature-list">
+                  <li>Oxycodone HCI 15mg</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
         </div>
       </div>
 
@@ -409,10 +260,6 @@
         <details class="donation-dropdown">
           <summary>View other accepted coins</summary>
           <div class="donation-option">
-            <span>Secondary BTC:</span>
-            <strong>bc1qlgqjcjtusy9fut7zm84c43zelc30fz3zxfe9rv</strong>
-          </div>
-          <div class="donation-option">
             <span>Ethereum:</span>
             <strong>0xb7a8C2deecAE937a1c671F7b2FD4c7ae024aE77e</strong>
           </div>
@@ -420,25 +267,40 @@
             <span>Solana:</span>
             <strong>BKBiRQNpYohE1AQkD4KHt5KHQEFVqttdoJR8F4zzz4AC</strong>
           </div>
-          <div class="donation-option">
-            <span>Litecoin:</span>
-            <strong>ltc1q7ptrmg0n9y3af5dyxawwe8ugjl4l990f5rnn78</strong>
-          </div>
         </details>
       </div>
 
       <div class="bottom-images">
-        <img src="350.png" alt="Tramadol">
-        <img src="dia.jpg" alt="Valium">
+        <img src="tramadol.png" alt="Tramadol">
+        <img src="valium.jpg" alt="Valium">
       </div>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 GlowLinks | Contact: <a href="mailto:NOVOHC-499@proton.me" style="color: var(--accent);">NOVOHC-499@proton.me</a>
+    &copy; 2026 GlowLinks | Contact: <a href="mailto:NOVOHC-499@proton.me" style="color: var(--accent);">NOVOHC-499@proton.me</a>
   </footer>
 
   <script>
+    function filterProducts() {
+      const input = document.getElementById('productSearch').value.toLowerCase();
+      const products = document.querySelectorAll('.product-item');
+      const viewMore = document.querySelector('details');
+      
+      products.forEach(product => {
+        const title = product.querySelector('.plan-title').innerText.toLowerCase();
+        if (title.includes(input)) {
+          product.style.display = "flex";
+          // Open the "View More" automatically if a hidden product matches
+          if (input.length > 0 && product.closest('details')) {
+              viewMore.open = true;
+          }
+        } else {
+          product.style.display = "none";
+        }
+      });
+    }
+
     function selectPlan(element) {
       document.querySelectorAll('.plan-card').forEach(card => card.classList.remove('active'));
       element.classList.add('active');
@@ -447,13 +309,14 @@
     function placeOrder() {
       const quantity = document.getElementById('quantity').value;
       const shipping = document.getElementById('shipping').value;
-      const plan = document.querySelector('.plan-card.active .plan-title').innerText;
+      const activeCard = document.querySelector('.plan-card.active');
       
-      alert(`✅ Order Received!\n\nPlan: ${plan}\nQuantity: ${quantity}\nAddress: ${shipping}\n\nPlease ensure you have sent at least 14€ to the correct wallet address below.`);
+      if (!activeCard) {
+        alert("Please select a product first!");
+        return;
+      }
+      
+      const plan = activeCard.querySelector('.plan-title').innerText;
+      alert(`✅ Order Received!\n\nProduct: ${plan}\nQuantity: ${quantity}\nAddress: ${shipping}\n\nPlease send payment to the correct wallet below.`);
     }
   </script>
-</body>
-
-</html>
-
-
