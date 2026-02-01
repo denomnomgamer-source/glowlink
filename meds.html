@@ -193,6 +193,117 @@
       <input type="number" id="quantity" value="1" min="1">
       <p class="warning-text">⚠️ Minimum Order: €140</p>
 
+      <div class="plan-options" id="productGrid">
+        <div class="plan-card active product-item" onclick="selectPlan(this)">
+          <div class="plan-header">
+            <div class="plan-title">valium 24 pack 15mg pills FENT FREE</div>
+            <div class="plan-price">$55</div>
+          </div>
+          <ul class="feature-list">
+            <li>Diazepam Teva 15mg</li>
+            <li>FREE TEST STRIPS</li>
+            <li>Standard Shipping 5-13 days</li>
+          </ul>
+        </div>
+
+        <div class="plan-card product-item" onclick="selectPlan(this)">
+          <div class="plan-header">
+            <div class="plan-title">Tramadol 24 PER BOX 50mg each capsule FENT FREE</div>
+            <div class="plan-price">$75</div>
+          </div>
+          <ul class="feature-list">
+            <li>Tramadol Sandoz 50mg</li>
+            <li>FREE TEST STRIPS</li>
+            <li>Fast Shipping 3-5 days</li>
+          </ul>
+        </div>
+
+        <div style="grid-column: 1 / -1; margin-top: 10px;">
+          <details class="donation-dropdown" style="background: rgba(255,255,255,0.05); border: 1px dashed #444;">
+            <summary style="padding: 15px; cursor: pointer; color: #ff3e3e; font-weight: 900; text-align: center; list-style: none;">
+              + VIEW MORE PRODUCTS
+            </summary>
+            <div class="plan-options" style="padding: 20px;">
+              
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Xanax 14 PER BOX 2mg FENT FREE</div>
+                  <div class="plan-price">$100</div>
+                </div>
+                <ul class="feature-list">
+                  <li>Xanax Alprazolam 2mg</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Xanax 24 PER BOX 1mg FENT FREE</div>
+                  <div class="plan-price">$90</div>
+                </div>
+                <ul class="feature-list">
+                  <li>Xanax Alprazolam 1mg</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">MDMA powder per bag PER GRM each capsule FENT FREE</div>
+                  <div class="plan-price">$30</div>
+                </div>
+                <ul class="feature-list">
+                  <li>Pure MDMA Crystals</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Oxycodone blue 10 PER BOX 30mg each FENT FREE</div>
+                  <div class="plan-price">$165</div>
+                </div>
+                <ul class="feature-list">
+                  <li>Oxycodone HCI 30mg</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Oxycodone Green 10 PER BOX 15mg each FENT FREE</div>
+                  <div class="plan-price">$125</div>
+                </div>
+                <ul class="feature-list">
+                  <li>Oxycodone HCI 15mg</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Dutch Made XTC 20 PER BOX each capsule FENT FREE</div>
+                  <div class="plan-price">$120</div>
+                </div>
+                <ul class="feature-list">
+                  <li>xtc (sky press)</li>
+                  <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div id="cart-summary" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid #333;">
+  <p style="color: var(--muted); font-size: 0.9rem;">Items Selected: <span id="total-items" style="color: #fff;">0</span></p>
+  <p style="font-size: 1.4rem; font-weight: 900; margin: 10px 0;">Total: <span id="total-price" style="color: var(--accent);">€0.00</span></p>
+  <p id="min-warning" style="color: #ff9800; font-size: 0.8rem; font-weight: 700;">⚠️ MINIMUM ORDER €140 REQUIRED</p>
+</div>
+
+<button class="btn" id="orderBtn" onclick="placeOrder()" disabled style="opacity: 0.5; cursor: not-allowed;">Place Order</button>
+
       <label for="payment">Preferred Payment Method</label>
       <select id="payment">
         <option value="bitcoin">Bitcoin (BTC)</option>
@@ -404,117 +515,6 @@
   <option value="zimbabwe">Zimbabwe</option>
       </select>
 
-      <div class="plan-options" id="productGrid">
-        <div class="plan-card active product-item" onclick="selectPlan(this)">
-          <div class="plan-header">
-            <div class="plan-title">valium 24 pack 15mg pills FENT FREE</div>
-            <div class="plan-price">$25</div>
-          </div>
-          <ul class="feature-list">
-            <li>Diazepam Teva 15mg</li>
-            <li>FREE TEST STRIPS</li>
-            <li>Standard Shipping 5-13 days</li>
-          </ul>
-        </div>
-
-        <div class="plan-card product-item" onclick="selectPlan(this)">
-          <div class="plan-header">
-            <div class="plan-title">Tramadol 24 PER BOX 50mg each capsule FENT FREE</div>
-            <div class="plan-price">$40</div>
-          </div>
-          <ul class="feature-list">
-            <li>Tramadol Sandoz 50mg</li>
-            <li>FREE TEST STRIPS</li>
-            <li>Fast Shipping 3-5 days</li>
-          </ul>
-        </div>
-
-        <div style="grid-column: 1 / -1; margin-top: 10px;">
-          <details class="donation-dropdown" style="background: rgba(255,255,255,0.05); border: 1px dashed #444;">
-            <summary style="padding: 15px; cursor: pointer; color: #ff3e3e; font-weight: 900; text-align: center; list-style: none;">
-              + VIEW MORE PRODUCTS
-            </summary>
-            <div class="plan-options" style="padding: 20px;">
-              
-              <div class="plan-card product-item" onclick="selectPlan(this)">
-                <div class="plan-header">
-                  <div class="plan-title">Xanax 14 PER BOX 2mg FENT FREE</div>
-                  <div class="plan-price">$100</div>
-                </div>
-                <ul class="feature-list">
-                  <li>Xanax Alprazolam 2mg</li>
-                  <li>FREE TEST STRIPS</li>
-                </ul>
-              </div>
-
-              <div class="plan-card product-item" onclick="selectPlan(this)">
-                <div class="plan-header">
-                  <div class="plan-title">Xanax 24 PER BOX 1mg FENT FREE</div>
-                  <div class="plan-price">$90</div>
-                </div>
-                <ul class="feature-list">
-                  <li>Xanax Alprazolam 1mg</li>
-                  <li>FREE TEST STRIPS</li>
-                </ul>
-              </div>
-
-              <div class="plan-card product-item" onclick="selectPlan(this)">
-                <div class="plan-header">
-                  <div class="plan-title">MDMA powder per bag PER GRM each capsule FENT FREE</div>
-                  <div class="plan-price">$30</div>
-                </div>
-                <ul class="feature-list">
-                  <li>Pure MDMA Crystals</li>
-                  <li>FREE TEST STRIPS</li>
-                </ul>
-              </div>
-
-              <div class="plan-card product-item" onclick="selectPlan(this)">
-                <div class="plan-header">
-                  <div class="plan-title">Oxycodone blue 10 PER BOX 30mg each FENT FREE</div>
-                  <div class="plan-price">$165</div>
-                </div>
-                <ul class="feature-list">
-                  <li>Oxycodone HCI 30mg</li>
-                  <li>FREE TEST STRIPS</li>
-                </ul>
-              </div>
-
-              <div class="plan-card product-item" onclick="selectPlan(this)">
-                <div class="plan-header">
-                  <div class="plan-title">Oxycodone Green 10 PER BOX 15mg each FENT FREE</div>
-                  <div class="plan-price">$125</div>
-                </div>
-                <ul class="feature-list">
-                  <li>Oxycodone HCI 15mg</li>
-                  <li>FREE TEST STRIPS</li>
-                </ul>
-              </div>
-
-              <div class="plan-card product-item" onclick="selectPlan(this)">
-                <div class="plan-header">
-                  <div class="plan-title">Dutch Made XTC 20 PER BOX each capsule FENT FREE</div>
-                  <div class="plan-price">$6 per pill</div>
-                </div>
-                <ul class="feature-list">
-                  <li>xtc (sky press)</li>
-                  <li>FREE TEST STRIPS</li>
-                </ul>
-              </div>
-
-            </div>
-          </details>
-        </div>
-      </div>
-
-      <div id="cart-summary" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid #333;">
-  <p style="color: var(--muted); font-size: 0.9rem;">Items Selected: <span id="total-items" style="color: #fff;">0</span></p>
-  <p style="font-size: 1.4rem; font-weight: 900; margin: 10px 0;">Total: <span id="total-price" style="color: var(--accent);">€0.00</span></p>
-  <p id="min-warning" style="color: #ff9800; font-size: 0.8rem; font-weight: 700;">⚠️ MINIMUM ORDER €140 REQUIRED</p>
-</div>
-
-<button class="btn" id="orderBtn" onclick="placeOrder()" disabled style="opacity: 0.5; cursor: not-allowed;">Place Order</button>
-
       <div style="margin-top: 25px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid #333;">
         <p style="margin-bottom: 15px;">
           <span style="color:#ffd700; font-size: 0.8rem; text-transform: uppercase;">Bitcoin Wallet:</span><br>
@@ -572,7 +572,7 @@
   </div>
 
   <footer>
-    &copy; 2026 GlowLinks | Contact: <a href="mailto:NOVOHC-499@proton.me" style="color: var(--accent);">NOVOHC-499@proton.me</a>
+    &copy; 2026 GlowLinks | TGN | The Glow-Network Contact: <a href="mailto:NOVOHC-499@proton.me" style="color: var(--accent);">NOVOHC-499@proton.me</a>
   </footer>
 
 <script>
@@ -683,7 +683,7 @@
       }
       summary += `\nTotal: ${document.getElementById('total-price').innerText}`;
       
-      alert(`✅ Order Sent! Email NOVOHC499@proton.me for tracking\n\n${summary}\n\nShipping to: ${shipping}`);
+      alert(`✅ Order Sent! Email NOVOHC-499@proton.me for tracking\n\n${summary}\n\nShipping to: ${shipping}`);
     }
 </script>
 </body>
