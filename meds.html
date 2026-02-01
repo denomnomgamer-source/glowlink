@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Onion-Location" content="http://glowmar5e3sx2puq4ncuwol3cbai744dcv5oiw7rezlqweg4nzt3vuyd.onion/" />
   <title>GlowMarket | Deepweb Links & GlowTV Private IPTV</title>
   <meta name="description" content="Get your orders fast and discretely - The best collection of Darkweb links and GlowTV IPTV Services. Updated daily.">
   <link rel="icon" type="image/png" href="the-glow-network.png">
@@ -179,6 +178,7 @@
     <div class="header">
       <div class="logo">Glow-Market</div>
       <h1>Secure Checkout</h1>
+      <h1>Escrow Payment Protection</h1>
     </div>
 
     <div class="card" style="margin-bottom: 20px; padding: 15px;">
@@ -408,7 +408,7 @@
         <div class="plan-card active product-item" onclick="selectPlan(this)">
           <div class="plan-header">
             <div class="plan-title">valium 24 pack 15mg pills FENT FREE</div>
-            <div class="plan-price">$85</div>
+            <div class="plan-price">$25</div>
           </div>
           <ul class="feature-list">
             <li>Diazepam Teva 15mg</li>
@@ -420,7 +420,7 @@
         <div class="plan-card product-item" onclick="selectPlan(this)">
           <div class="plan-header">
             <div class="plan-title">Tramadol 24 PER BOX 50mg each capsule FENT FREE</div>
-            <div class="plan-price">$145</div>
+            <div class="plan-price">$40</div>
           </div>
           <ul class="feature-list">
             <li>Tramadol Sandoz 50mg</li>
@@ -494,7 +494,7 @@
               <div class="plan-card product-item" onclick="selectPlan(this)">
                 <div class="plan-header">
                   <div class="plan-title">Dutch Made XTC 20 PER BOX each capsule FENT FREE</div>
-                  <div class="plan-price">$110</div>
+                  <div class="plan-price">$6 per pill</div>
                 </div>
                 <ul class="feature-list">
                   <li>xtc (sky press)</li>
@@ -507,9 +507,21 @@
         </div>
       </div>
 
-      <button class="btn" onclick="placeOrder()">Place Order</button>
+      <div id="cart-summary" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid #333;">
+  <p style="color: var(--muted); font-size: 0.9rem;">Items Selected: <span id="total-items" style="color: #fff;">0</span></p>
+  <p style="font-size: 1.4rem; font-weight: 900; margin: 10px 0;">Total: <span id="total-price" style="color: var(--accent);">€0.00</span></p>
+  <p id="min-warning" style="color: #ff9800; font-size: 0.8rem; font-weight: 700;">⚠️ MINIMUM ORDER €140 REQUIRED</p>
+</div>
+
+<button class="btn" id="orderBtn" onclick="placeOrder()" disabled style="opacity: 0.5; cursor: not-allowed;">Place Order</button>
 
       <div style="margin-top: 25px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid #333;">
+        <p style="margin-bottom: 15px;">
+          <span style="color:#ffd700; font-size: 0.8rem; text-transform: uppercase;">Bitcoin Wallet:</span><br>
+          <strong style="color: var(--success); font-family: monospace; font-size: 0.85rem; word-break: break-all;">bc1qjrgraxqa58lmlvruzdqmmx0jan59ztzyy8uym7</strong>
+        </p>
+
+       <div style="margin-top: 25px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid #333;">
         <p style="margin-bottom: 15px;">
           <span style="color:#ffd700; font-size: 0.8rem; text-transform: uppercase;">Bitcoin Wallet:</span><br>
           <strong style="color: var(--success); font-family: monospace; font-size: 0.85rem; word-break: break-all;">bc1qdg4m6yh4cgmrsagmzce8hkcn09gh6xhels93rd</strong>
@@ -563,7 +575,10 @@
     &copy; 2026 GlowLinks | Contact: <a href="mailto:NOVOHC-499@proton.me" style="color: var(--accent);">NOVOHC-499@proton.me</a>
   </footer>
 
-  <script>
+<script>
+    let cart = {}; // Stores product title as key, and {price, qty} as value
+    const MIN_ORDER = 140;
+
     function showMoreImages() {
       document.getElementById('extraGallery').style.display = 'grid';
       document.getElementById('showBtn').style.display = 'none';
@@ -572,44 +587,104 @@
     function filterProducts() {
       const input = document.getElementById('productSearch').value.toLowerCase();
       const products = document.querySelectorAll('.product-item');
-      const viewMore = document.querySelector('details');
-      
       products.forEach(product => {
         const title = product.querySelector('.plan-title').innerText.toLowerCase();
-        if (title.includes(input)) {
-          product.style.display = "flex";
-          if (input.length > 0 && product.closest('details')) {
-              viewMore.open = true;
-          }
-        } else {
-          product.style.display = "none";
-        }
+        product.style.display = title.includes(input) ? "flex" : "none";
       });
     }
 
+    // This handles the "Add to Cart" logic
     function selectPlan(element) {
-      document.querySelectorAll('.plan-card').forEach(card => card.classList.remove('active'));
-      element.classList.add('active');
+      const title = element.querySelector('.plan-title').innerText;
+      const priceText = element.querySelector('.plan-price').innerText;
+      const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+
+      if (cart[title]) {
+        cart[title].qty += 1;
+      } else {
+        cart[title] = { price: price, qty: 1 };
+      }
+      
+      // Flash the card so they know it was added
+      element.style.borderColor = "var(--success)";
+      setTimeout(() => { element.style.borderColor = ""; }, 300);
+
+      updateTotal();
+    }
+
+    function removeFromCart(title) {
+      if (cart[title]) {
+        cart[title].qty -= 1;
+        if (cart[title].qty <= 0) delete cart[title];
+      }
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const cartSummary = document.getElementById('cart-summary');
+      const orderBtn = document.getElementById('orderBtn');
+      const minWarning = document.getElementById('min-warning');
+      
+      let subtotal = 0;
+      let totalItems = 0;
+      let cartHtml = '<strong>Items in Cart:</strong><br>';
+
+      for (let title in cart) {
+        let itemTotal = cart[title].price * cart[title].qty;
+        subtotal += itemTotal;
+        totalItems += cart[title].qty;
+        cartHtml += `
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-top:5px;">
+            <span>${cart[title].qty}x ${title}</span>
+            <span style="color:var(--accent); cursor:pointer;" onclick="event.stopPropagation(); removeFromCart('${title}')">[Remove]</span>
+          </div>`;
+      }
+
+      if (totalItems === 0) cartHtml = '<em>Your cart is empty. Click products to add.</em>';
+
+      // Update UI
+      document.getElementById('total-items').innerText = totalItems;
+      document.getElementById('total-price').innerText = `€${subtotal.toFixed(2)}`;
+      
+      // We keep the innerHTML update separate so it doesn't break the spans
+      const cartList = document.getElementById('cart-list') || createCartList();
+      cartList.innerHTML = cartHtml;
+
+      if (subtotal >= MIN_ORDER && totalItems > 0) {
+        orderBtn.disabled = false;
+        orderBtn.style.opacity = "1";
+        orderBtn.style.cursor = "pointer";
+        minWarning.style.display = "none";
+      } else {
+        orderBtn.disabled = true;
+        orderBtn.style.opacity = "0.5";
+        minWarning.style.display = "block";
+      }
+    }
+
+    function createCartList() {
+      const div = document.createElement('div');
+      div.id = 'cart-list';
+      div.style.marginBottom = "10px";
+      div.style.borderBottom = "1px solid #333";
+      div.style.paddingBottom = "10px";
+      const summary = document.getElementById('cart-summary');
+      summary.prepend(div);
+      return div;
     }
 
     function placeOrder() {
-      const quantity = document.getElementById('quantity').value;
       const shipping = document.getElementById('shipping').value;
-      const activeCard = document.querySelector('.plan-card.active');
+      if (!shipping) { alert("Enter an address, ."); return; }
       
-      if (!activeCard) {
-        alert("Please select a product first!");
-        return;
+      let summary = "Order Details:\n";
+      for (let title in cart) {
+        summary += `- ${cart[title].qty}x ${title}\n`;
       }
+      summary += `\nTotal: ${document.getElementById('total-price').innerText}`;
       
-      const plan = activeCard.querySelector('.plan-title').innerText;
-      alert(`✅ Order Received!\n\nProduct: ${plan}\nQuantity: ${quantity}\nAddress: ${shipping}\n\nPlease send payment to the correct wallet below.`);
+      alert(`✅ Order Sent!\n\n${summary}\n\nShipping to: ${shipping}`);
     }
-  </script>
+</script>
 </body>
-
 </html>
-
-
-
-
