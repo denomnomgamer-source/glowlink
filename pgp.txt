@@ -18,7 +18,6 @@ Glownet IPTV Clearnet Back-up URL
 https://glowlinks.net/glowtv
 
 Glownet IPTV
-http://glowtvmeelsx6xr5ozfwxxspdeujufbbe3jxvigylwyxynlekw3dcmad.onion
 http://glowiptvaao2h54hedo4yuhptegsxyl6xgoydom3fkbi4mo367xgjxid.onion
 
 The Epstein Files ( Hosted by us )
@@ -88,4 +87,5 @@ pEW/4x46YGLSaAir0BY8OkUE
 
 -----END PGP PUBLIC KEY BLOCK-----
         
+
         
