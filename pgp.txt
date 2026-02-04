@@ -2,17 +2,24 @@ our official and ONLY mirrors services and PGP
 
 Glowlinks Clearnet URL 
 https://glowlinks.net/
-https://glowtv.org/
 
-proxy if blocked
-https://lustrous-trifle-b6c1ae.netlify.app/
 
-Glowlinks
+Glowlinks oinion Site/mirrors
 http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/
 http://mirrorbe3bbixahkrrbrovdyhuwash67xwoxt2xwia273ryqkwzzu6id.onion/
 http://glowprxybcdav3u5zwdjpha4rab2uhj66vyuq6gxg2kfzimqejp2evid.onion/
 http://mirrord5o2kqc3davlggrx43f5ecd4vvtkbzvykafhbucoixy7lmnkad.onion/
 http://relayylfp7trp6ixinokyuroi2r4n67ldsoxkq4ypoux2lgcijig4pid.onion/
+
+Glownet IPTV Clearnet URL
+https://glowtv.org/
+
+Glownet IPTV Clearnet Back-up URL
+https://glowlinks.net/glowtv
+
+Glownet IPTV
+http://glowtvmeelsx6xr5ozfwxxspdeujufbbe3jxvigylwyxynlekw3dcmad.onion
+http://glowiptvaao2h54hedo4yuhptegsxyl6xgoydom3fkbi4mo367xgjxid.onion
 
 The Epstein Files ( Hosted by us )
 http://glowcdnkky4emsoj3vo7kwmpkza7hva5rnv67wwnwcyekix6aoz23iid.onion/
@@ -38,6 +45,7 @@ http://glowwaveaykrlqq5n3z3lu43usmi2bkhom2hqryods2s45ea5cj2leyd.onion/
 Glow-Markt
 http://glowmar5e3sx2puq4ncuwol3cbai744dcv5oiw7rezlqweg4nzt3vuyd.onion/
 http://proxy2pcjdnilx37jiz4xxgivhg7hjiq5ac4q4ev3blycagvuye6jayd.onion/
+http://mirrorywpea65ui45jokyukog7nisp3zbo75mhwgplm2txdg3eyvjsyd.onion/
 
 Glow-Media
 http://glowmedizyeiggjzhlowsivmq2ritjlp5tnyzvivw6tadwmevkkawbqd.onion/
@@ -80,6 +88,4 @@ pEW/4x46YGLSaAir0BY8OkUE
 
 -----END PGP PUBLIC KEY BLOCK-----
         
-
         
-
