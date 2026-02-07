@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Onion-Location" content="http://glowmar5e3sx2puq4ncuwol3cbai744dcv5oiw7rezlqweg4nzt3vuyd.onion/" />
+  <meta https-equiv="https-Location" content="https://glowlinks.net/meds" />
   <title>GlowMarket | Drugmarket</title>
-  <meta name="description" content="Get your orders fast and discretely - The best collection of Medications, Drugs, Xanax, Updated daily.">
+  <meta name="description" content="Get your meds fast and discretely - The best collection of Darkweb links and GlowTV IPTV Services. Updated daily.">
   <link rel="icon" type="image/png" href="the-glow-network.png">
   <style>
     :root {
@@ -219,6 +219,17 @@
           </ul>
         </div>
 
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Mixed bills Counterfeit scan proof 50, 20, and 10, Euro bills</div>
+                  <div class="plan-price">$1100</div>
+                </div>
+                <ul class="feature-list">
+                  <li>scan proof</li>
+                  <li>3000 Euro worth of bills</li>
+                </ul>
+              </div>
+
         <div style="grid-column: 1 / -1; margin-top: 10px;">
           <details class="donation-dropdown" style="background: rgba(255,255,255,0.05); border: 1px dashed #444;">
             <summary style="padding: 15px; cursor: pointer; color: #ff3e3e; font-weight: 900; text-align: center; list-style: none;">
@@ -289,6 +300,39 @@
                 <ul class="feature-list">
                   <li>xtc (sky press)</li>
                   <li>FREE TEST STRIPS</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Pack of 20 bills Counterfeit scan proof 50 Euro bills</div>
+                  <div class="plan-price">$350</div>
+                </div>
+                <ul class="feature-list">
+                  <li>scan proof</li>
+                  <li>1000 Euro worth of bills</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Pack of 40 bills Counterfeit scan proof 20 Euro bills</div>
+                  <div class="plan-price">$270</div>
+                </div>
+                <ul class="feature-list">
+                  <li>scan proof</li>
+                  <li>800 Euro worth of bills</li>
+                </ul>
+              </div>
+
+              <div class="plan-card product-item" onclick="selectPlan(this)">
+                <div class="plan-header">
+                  <div class="plan-title">Pack of 50 bills Counterfeit scan proof 10 Euro bills</div>
+                  <div class="plan-price">$160</div>
+                </div>
+                <ul class="feature-list">
+                  <li>scan proof</li>
+                  <li>500 Euro worth of bills</li>
                 </ul>
               </div>
 
@@ -560,6 +604,13 @@
           <img src="valium.jpg" alt="Oxy">
           <img src="mdma.jpg" alt="Mdma">
           <img src="xan2m.jpg" alt="xanax">
+          <img src="50f.jpg" alt="50 bill front">
+          <img src="50b.jpg" alt="50 bill Back">
+          <img src="20f.jpg" alt="20 bill front">
+          <img src="20b.jpg" alt="20 bill Back">
+          <img src="10f.jpg" alt="10 bill front">
+          <img src="10b.jpg" alt="10 bill Back">
+          <img src="pack.png" alt="counterfeit pack">
         </div>
 
         <button id="showBtn" class="show-more-btn" onclick="showMoreImages()">Show More Images</button>
@@ -589,7 +640,6 @@
       });
     }
 
-    // This handles the "Add to Cart" logic
     function selectPlan(element) {
       const title = element.querySelector('.plan-title').innerText;
       const priceText = element.querySelector('.plan-price').innerText;
@@ -601,7 +651,7 @@
         cart[title] = { price: price, qty: 1 };
       }
       
-      // Flash the card so they know it was added
+      
       element.style.borderColor = "var(--success)";
       setTimeout(() => { element.style.borderColor = ""; }, 300);
 
@@ -684,7 +734,6 @@
 </script>
 </body>
 </html>
-
 
 
 
