@@ -243,6 +243,46 @@
         .footer { margin: 40px 0; color: #333; font-size: 0.7rem; letter-spacing: 2px; text-align: center; }
         
         summary { color: var(--gold-premium); cursor: pointer; font-weight: bold; margin-top: 10px; outline: none; }
+
+/* 1. The Container - This forces the horizontal layout */
+.banner-wrapper {
+    display: flex !important;
+    flex-direction: row;     
+    justify-content: center;  
+    align-items: center;     
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;        
+    margin: 40px auto;       
+}
+
+
+.banner-wrapper .glow-links-banned {
+    flex: 1;                  
+    display: block !important;
+    width: auto !important;   
+    max-width: 48%;           
+    margin: 0 !important;     
+}
+
+
+.banned-gif {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #222;
+    transition: all 0.3s;
+}
+
+
+@media (max-width: 600px) {
+    .banner-wrapper {
+        flex-direction: column;
+    }
+    .banner-wrapper .glow-links-banned {
+        max-width: 90%;
+    }
+}
     </style>
 </head>
 <body>
@@ -357,9 +397,15 @@
     </details>
 </div>
 
-<a href="http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/" class="glow-links-banned">
-    <img src="Glowlinks-ad.gif" alt="BANNED" class="banned-gif">
-</a>
+<div class="banner-wrapper">
+    <a href="http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/" class="glow-links-banned">
+        <img src="Glowlinks-ad.gif" alt="BANNED" class="banned-gif">
+    </a>
+
+    <a href="/meds" class="glow-links-banned">
+        <img src="hlmarkt.gif" alt="BANNED" class="banned-gif">
+    </a>
+</div>
 
 <div class="footer">
     GLOW-NETWORK © 2012 - 2026. <br>
@@ -401,6 +447,5 @@
 </body>
 
 </html>
-
 
 
