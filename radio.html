@@ -51,14 +51,14 @@
         }
 
         .status-badge {
-            color: var(--gold-premium);
+            color: #46d369;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 900;
             margin-bottom: 15px;
             display: block;
-            text-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+            text-shadow: 0 0 10px rgba(70, 211, 105, 0.4);
         }
 
         #glow-player-wrap {
@@ -114,14 +114,14 @@
 </div>
 
 <div class="radio-deck">
-    <span class="status-badge">Now Playing: Liveset</span>
+    <span class="status-badge">Tunnel Established - Ready to Slam</span>
     
     <div id="glow-player-wrap">
-        <p id="tunnel-status" style="color: #666; font-size: 0.8rem; margin-bottom: 10px;">Establishing Zero-Trust Tunnel Protocol...</p>
         <div id="audio-target">
-             <button id="mobile-play-btn" class="btn-pgp" style="display:none; width:100%; margin-bottom:10px;">
-                press play
-            </button>
+            <audio id="glow-audio" controls style="width:100%;">
+                <source src="http://radio.glowlinks.net/stream" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         </div>
     </div>
 
@@ -137,42 +137,6 @@
 </div>
 
 <script>
-    (function() {
-        // Direct Source as requested
-        const secure_src = "https://commandcenter.tail5a820f.ts.net/stream";
-
-        setTimeout(() => {
-            const target = document.getElementById('audio-target');
-            const status = document.getElementById('tunnel-status');
-            const playBtn = document.getElementById('mobile-play-btn');
-            
-            const player = document.createElement('audio');
-            player.id = "glow-audio";
-            player.controls = true;
-            // Note: Autoplay is unreliable on mobile, hence the SLAM button
-            player.innerHTML = `<source src="${secure_src}" type="audio/mpeg">`;
-            
-            player.oncontextmenu = (e) => e.preventDefault();
-            
-            target.appendChild(player);
-            status.innerText = "Tunnel Established - Ready to Slam";
-            status.style.color = "#46d369";
-            playBtn.style.display = "block";
-
-            playBtn.onclick = function() {
-                if (player.paused) {
-                    player.play();
-                    this.innerText = "PAUSE STREAM";
-                    this.style.background = "#444";
-                } else {
-                    player.pause();
-                    this.innerText = "RESUME STREAM";
-                    this.style.background = "var(--glow-red)";
-                }
-            };
-        }, 1200);
-    })();
-
     const title = document.getElementById('title');
     document.addEventListener('mousemove', (e) => {
         const x = (window.innerWidth / 2 - e.pageX) / 40;
@@ -188,4 +152,3 @@
 </script>
 </body>
 </html>
-
