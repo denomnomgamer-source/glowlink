@@ -70,10 +70,11 @@
             user-select: none;
         }
 
-        #glow-audio {
+        audio {
             width: 100%;
             height: 45px;
             filter: invert(100%) hue-rotate(180deg) contrast(1.2);
+            margin-top: 10px;
         }
 
         .meta-data { margin: 20px 0; font-weight: 700; font-size: 0.9rem; color: #888; }
@@ -137,12 +138,8 @@
 
 <script>
     (function() {
-        // Obfuscated Stream Link
-        const _0x1 = "https://";
-        const _0x2 = "commandcenter.";
-        const _0x3 = "tail5a820f.";
-        const _0x4 = "ts.net/stream";
-        const secure_src = _0x1 + _0x2 + _0x3 + _0x4;
+        // Direct Source as requested
+        const secure_src = "https://commandcenter.tail5a820f.ts.net/stream";
 
         setTimeout(() => {
             const target = document.getElementById('audio-target');
@@ -152,6 +149,7 @@
             const player = document.createElement('audio');
             player.id = "glow-audio";
             player.controls = true;
+            // Note: Autoplay is unreliable on mobile, hence the SLAM button
             player.innerHTML = `<source src="${secure_src}" type="audio/mpeg">`;
             
             player.oncontextmenu = (e) => e.preventDefault();
@@ -182,6 +180,7 @@
         title.style.transform = `translateX(${x}px) translateY(${y}px)`;
     });
 
+    // F12 / Inspect protection
     document.onkeydown = function(e) {
         if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
             return false;
