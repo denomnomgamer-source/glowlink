@@ -109,7 +109,7 @@
 <div class="hero">
     <h1 id="title">RADIO</h1>
     <div class="meta-data">
-        <span class="match">LIVE</span> 24/7 Lossless | Bass Optimized Audio | <strong>Bionic-Tank Encrypted</strong>
+        <span class="match">LIVE</span> 24/7 Lossless | Bass Optimized Audio | <strong>Encrypted Proxy stream</strong>
     </div>
 </div>
 
@@ -117,16 +117,16 @@
     <span class="status-badge">Now Playing: Liveset</span>
     
     <div id="glow-player-wrap">
-        <p id="tunnel-status" style="color: #666; font-size: 0.8rem; margin-bottom: 10px;">Establishing Zero-Trust Tunnel...</p>
+        <p id="tunnel-status" style="color: #666; font-size: 0.8rem; margin-bottom: 10px;">Establishing Zero-Trust Tunnel Protocol...</p>
         <div id="audio-target">
              <button id="mobile-play-btn" class="btn-pgp" style="display:none; width:100%; margin-bottom:10px;">
-                SLAM THE STREAM [LIVE]
+                press play
             </button>
         </div>
     </div>
 
     <p style="color:var(--gold-premium); font-size:0.85rem; font-weight: bold; text-align: center; border: 1px solid rgba(216, 200, 160, 0.2); padding: 15px; border-radius: 8px;">
-        ⚠️ NOTICE: This stream is proxied through our secure nodes. Do not share the direct stream link or your IP will be blacklisted.
+        ⚠️ NOTICE: This stream is proxied through our secure nodes. Do not share the direct stream link or your IP will be blacklisted. and banned on all Glow services
     </p>
 
     <a href="index.html" class="btn-pgp">Return to home</a>
@@ -180,7 +180,6 @@
         title.style.transform = `translateX(${x}px) translateY(${y}px)`;
     });
 
-    // F12 / Inspect protection
     document.onkeydown = function(e) {
         if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
             return false;
@@ -189,3 +188,4 @@
 </script>
 </body>
 </html>
+
