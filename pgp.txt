@@ -2,7 +2,9 @@ our official and ONLY mirrors services and PGP
 
 Glowlinks Clearnet URL 
 https://glowlinks.net/
-
+https://glowtv.shop/
+radio.glowtv.shop
+tv.glowtv.shop
 
 Glowlinks oinion Site/mirrors
 http://glowlinh5msygm5hwqy5uyu5ouey6r4b2uvccfzqo2svugdlvgc4a6ad.onion/
