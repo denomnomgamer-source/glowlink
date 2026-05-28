@@ -305,20 +305,20 @@ function loadServers(season = 1, episode = 1) {
     const servers = document.getElementById("servers");
     servers.innerHTML = "";
 
-    const movieServers = [
-        {name: "MultiEmbed", url: `https://multiembed.mov/?video_id=${id}&tmdb=1`},        
-	{name: "VidSrc", url: `https://vidsrc-embed.ru/embed/movie?tmdb=${id}/`},
-        {name: "VidRock", url: `https://vidrock.ru/movie/${id}`},
-        {name: "VidLink", url: `https://vidlink.pro/movie/${id}`},
-        {name: "2Embed", url: `https://www.2embed.online/2embed.php?id=${id}`}
-    ];
+const movieServers = [
+    {name: "Alpha", url: `https://multiembed.mov/?video_id=${id}&tmdb=1`},
+    {name: "Bravo", url: `https://vidsrc-embed.ru/embed/movie?tmdb=${id}/`},
+    {name: "Charlie", url: `https://vidrock.ru/movie/${id}`},
+    {name: "Delta", url: `https://vidlink.pro/movie/${id}`},
+    {name: "Echo", url: `https://www.2embed.online/2embed.php?id=${id}`}
+];
 
-    const tvServers = [
-        {name: "VidRock", url: `https://vidrock.ru/tv/${id}/${season}/${episode}`},
-        {name: "2Embed", url: `https://www.2embed.online/tv-2embed.php?id=${id}&season=${season}&episode=${episode}`},
-        {name: "VidSrc", url: `https://vidsrc-embed.ru/embed/tv?tmdb=${id}&episode=${episode}&season=${season}`},
-        {name: "VidLink", url: `https://vidlink.pro/tv/${id}/${season}/${episode}`},
-    ];
+const tvServers = [
+    {name: "Alpha", url: `https://vidrock.ru/tv/${id}/${season}/${episode}`},
+    {name: "Bravo", url: `https://www.2embed.online/tv-2embed.php?id=${id}&season=${season}&episode=${episode}`},
+    {name: "Charlie", url: `https://vidsrc-embed.ru/embed/tv?tmdb=${id}&episode=${episode}&season=${season}`},
+    {name: "Delta", url: `https://vidlink.pro/tv/${id}/${season}/${episode}`}
+];
 
     const list = type === "movie" ? movieServers : tvServers;
 
