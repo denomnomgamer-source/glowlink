@@ -1,278 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Onion-Location" content="http://glowwavehcdcuh2bn6mzfhexe4wy3dikwur5zjvuywczowqmq7evf5ad.onion/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowLinks | Glowwave-FM Radio | 24/7 Lossless</title>
-    <meta name="Glowlinks The Glow-Network" content="The official 24/7 radio of the Glow-Network. Zero-Trust protocol encrypted.">
-    <link rel="icon" type="image/png" href="the-glow-network.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta http-equiv="Onion-Location" content="http://glowwavehcdcuh2bn6mzfhexe4wy3dikwur5zjvuywczowqmq7evf5ad.onion/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glowwave-FM | Glowlinks Radio | 24/7 Lossless</title>
+<meta name="Glowwave-FM The Glow-Network" content="The official 24/7 radio of the Glow-Network. Zero-Trust protocol encrypted.">
+<link rel="icon" type="image/png" href="the-glow-network.png">
 
-    <style>
-        :root {
-            --glow-red: #ff0000;
-            --deep-red: #8b0000;
-            --gold-premium: #ffcc00;
-            --bg-dark: #050505;
-            --matrix-green: #46d369;
-        }
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 50% -20%, rgba(229, 9, 20, 0.2) 0%, transparent 50%),
-                url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-            color: #fff;
-            display: flex; flex-direction: column; align-items: center;
-            min-height: 100vh; overflow-x: hidden;
-            padding-top: 5rem; 
-        }
+<style>
+:root {
+  --glow-accent: #ff3b6b;
+  --glow-accent-soft: #ff6b8f;
+  --bg-dark: #050509;
+  --bg-card: #11131a;
+  --bg-card-alt: #151722;
+  --border-soft: #262938;
+  --hero-purple: #2b2f4a;
+  --text-main: #f5f5f5;
+  --text-soft: rgba(245,245,245,0.75);
+  --gold-premium: #ffcc00;
+}
 
-        .rating { position: absolute; top: 4.5rem; left: 20px; border: 2px solid #fff; padding: 4px 12px; font-size: 1rem; font-weight: 900; letter-spacing: 1px; background: rgba(0,0,0,0.5); z-index: 10; }
-        
-        .hero { text-align: center; padding: 20px; z-index: 2; width: 100%; max-width: 800px; }
-        h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(3rem, 12vw, 7rem); text-transform: uppercase; margin: 0; letter-spacing: -4px; line-height: 0.9; background: linear-gradient(to bottom, #fff 30%, #444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: transform 0.1s ease-out; }
-        
-        .radio-deck {
-            background: linear-gradient(145deg, rgba(15, 15, 15, 0.98), rgba(5, 5, 5, 1));
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 40px auto;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 1), inset 0 0 30px rgba(255, 0, 0, 0.1);
-            max-width: 650px;
-            width: 90%;
-            position: relative;
-        }
+/* Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .status-badge {
-            color: var(--matrix-green);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .pulse-dot {
-            width: 8px; height: 8px;
-            background: var(--matrix-green);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--matrix-green);
-            animation: pulse 1.5s infinite;
-        }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #050509;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-top: 5rem;
+}
 
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+/* INTRO ANIMATION */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, var(--hero-purple), #050509 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: intro-fade 2.8s forwards;
+}
 
-        .visualizer-container {
-            width: 100%;
-            height: 120px;
-            background: #000;
-            border-radius: 8px;
-            border: 1px solid #222;
-            margin-bottom: 25px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 0 10px;
-            gap: 2px;
-        }
+.intro-title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: intro-zoom 1.8s forwards;
+  text-shadow: 0 0 22px rgba(255, 59, 107, 0.8);
+}
 
-        .vu-meter {
-            position: absolute;
-            top: 10px; right: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 10px;
-            color: var(--glow-red);
-            text-align: right;
-            line-height: 1;
-        }
+@keyframes intro-zoom {
+  0% { opacity: 0; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
 
-        #glow-player-wrap {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-bottom: 25px;
-        }
+@keyframes intro-fade {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
 
-        audio {
-            width: 100%;
-            height: 40px;
-            filter: invert(100%) hue-rotate(180deg) contrast(1.1);
-        }
+/* ~TGN label */
+.rating {
+  position: absolute;
+  top: 4.5rem;
+  left: 20px;
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(10, 10, 20, 0.9);
+  border: 1px solid var(--glow-accent);
+  box-shadow: 0 0 18px rgba(255, 59, 107, 0.4);
+  z-index: 10;
+}
 
-        .meta-data { margin: 20px 0; font-weight: 700; font-size: 0.9rem; color: #888; }
-        .match { color: var(--matrix-green); margin-right: 15px; }
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 20px;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+}
 
-        .btn-pgp { 
-            background: var(--glow-red); 
-            color: #fff; 
-            padding: 12px 25px; 
-            font-size: 0.8rem; 
-            font-weight: 900; 
-            border-radius: 5px; 
-            text-decoration: none; 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 8px; 
-            margin-top: 10px; 
-            transition: 0.3s;
-            border: none;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-        .btn-pgp:hover { background: #cc0000; transform: translateY(-2px); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); }
+h1 {
+  font-size: clamp(3rem, 10vw, 5rem);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -2px;
+  line-height: 0.9;
+  background: linear-gradient(to bottom, #ffffff 10%, #bbbbc8 60%, #55556a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.1s ease-out;
+}
 
-        .footer { margin: 60px 0 40px; color: #333; font-size: 0.7rem; letter-spacing: 2px; text-align: center; }
-        
-        /* Bar animation style */
-        .bar {
-            flex: 1;
-            background: linear-gradient(to top, var(--glow-red), var(--gold-premium));
-            min-height: 2px;
-            transition: height 0.05s ease;
-        }
-    </style>
+.meta-data {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+.meta-data .match {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(0, 200, 120, 0.12);
+  color: #46d369;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-right: 10px;
+}
+
+/* Card */
+.radio-deck {
+  background: radial-gradient(circle at top, var(--hero-purple), #050509 60%);
+  border-radius: 20px;
+  margin: 30px auto 40px;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+  max-width: 650px;
+  width: 90%;
+  position: relative;
+  padding: 30px 22px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Loading bar (in-deck) */
+.loading-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.loading-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--glow-accent), var(--glow-accent-soft));
+  box-shadow: 0 0 12px rgba(255, 59, 107, 0.6);
+  animation: loading-sweep 2s infinite;
+}
+
+@keyframes loading-sweep {
+  0% { width: 0%; }
+  50% { width: 80%; }
+  100% { width: 0%; }
+}
+
+/* Visualizer */
+.visualizer-container {
+  width: 100%;
+  height: 120px;
+  background: radial-gradient(circle at top, var(--hero-purple), #050509 60%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 10px;
+  gap: 2px;
+}
+
+.bar {
+  flex: 1;
+  background: linear-gradient(to top, var(--glow-accent), #ffcc00);
+  min-height: 2px;
+  transition: height 0.05s ease;
+}
+
+/* VU / metrics */
+.vu-meter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  color: #ff6b6b;
+  text-align: right;
+  line-height: 1.2;
+}
+
+/* Ticker */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: rgba(10, 10, 18, 0.95);
+  margin-bottom: 18px;
+}
+
+.ticker-inner {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 6px 16px;
+  font-size: 0.7rem;
+  color: var(--text-soft);
+  animation: ticker-scroll 120s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}
+
+.ticker-item {
+  margin-right: 32px;
+}
+
+.ticker-source {
+  color: var(--glow-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 6px;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Player block */
+#glow-player-wrap {
+  background: rgba(5, 5, 12, 0.9);
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 18px;
+}
+
+audio {
+  width: 100%;
+  height: 40px;
+  filter: invert(100%) hue-rotate(180deg) contrast(1.05);
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn-pgp {
+  background: linear-gradient(135deg, var(--glow-accent), var(--glow-accent-soft));
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s ease-out;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  justify-content: center;
+  box-shadow: 0 0 18px rgba(255, 59, 107, 0.4);
+  flex: 1;
+}
+
+.btn-pgp:hover {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 0 26px rgba(255, 59, 107, 0.6);
+}
+
+/* Notice */
+.notice {
+  color: var(--gold-premium);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(216, 200, 160, 0.18);
+  padding: 12px 14px;
+  border-radius: 10px;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+/* Footer */
+.footer {
+  margin: 40px 0 30px;
+  color: #55556a;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-align: center;
+}
+</style>
 </head>
 <body oncontextmenu="return false;">
 
-<div class="rating">~TGN Glowwave-FM.</div>
+<!-- Intro overlay -->
+<div class="intro-screen">
+  <div class="intro-title">Glowwave‑FM</div>
+</div>
+
+<div class="rating">~TGN Glowwave-FM</div>
 
 <div class="hero">
-    <h1 id="title">Glowwave-FM</h1>
-    <div class="meta-data">
-        <span class="match">LIVE</span> 24/7 Lossless | Bass Optimized Audio | <strong>Encrypted Proxy stream</strong>
-    </div>
+  <h1 id="title">Glowwave-FM</h1>
+  <div class="meta-data">
+    <span class="match">LIVE</span> 24/7 Lossless | Bass Optimized Audio | <strong>Encrypted Proxy stream</strong>
+  </div>
 </div>
 
 <div class="radio-deck">
-    <div class="status-badge">
-        <div class="pulse-dot"></div>
-        Tunnel Established: Edgenode 361 ACTIVE
+
+  <!-- Loading bar -->
+  <div id="loading-bar" class="loading-bar">
+    <div class="loading-bar-fill"></div>
+  </div>
+
+  <!-- Visualizer -->
+  <div class="visualizer-container" id="visualizer" style="opacity:0; transition:0.6s;">
+    <div class="vu-meter">
+      PEAK: -0.2dB<br>
+      LUFS: -1.1<br>
+      <span id="gain-label" style="color:#ffffff">GAIN: 0%</span>
     </div>
-    
+  </div>
 
-    <div class="visualizer-container" id="visualizer">
-        <div class="vu-meter">
-            PEAK: -0.2dB<br>
-            LUFS: -1.1<br>
-            <span id="gain-label" style="color:#fff">GAIN: 0%</span>
-        </div>
-    </div>
+  <!-- News ticker -->
+  <div class="ticker-wrap" id="ticker-wrap" style="opacity:0; transition:0.6s;">
+    <div class="ticker-inner" id="ticker">Loading headlines...</div>
+  </div>
 
-    <div id="glow-player-wrap">
-        <audio id="glow-audio" crossorigin="anonymous">
-<source src="https://cdn.tail5a820f.ts.net/stream" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-        <button id="play-btn" class="btn-pgp" style="width: 100%; justify-content: center; margin-bottom: 10px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            START STREAM
-        </button>
-        <div style="font-size: 10px; color: #444; margin-top: 5px;">Take A Beer</div>
-    </div>
+  <!-- Player -->
+  <div id="glow-player-wrap" style="opacity:0; transition:0.6s;">
+    <audio id="glow-audio" crossorigin="anonymous">
+      <source src="https://cdn.tail5a820f.ts.net/stream" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <button id="play-btn" class="btn-pgp" style="width: 100%; margin-bottom: 6px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      START STREAM
+    </button>
+    <div style="font-size: 10px; color: #666a80; margin-top: 4px;">Take A Beer</div>
+  </div>
 
-    <p style="color:var(--gold-premium); font-size:0.8rem; font-weight: bold; text-align: center; border: 1px solid rgba(216, 200, 160, 0.1); padding: 15px; border-radius: 8px; line-height: 1.5;">
-        ⚠️ NOTICE: This stream is proxied through our secure nodes. Do not share the direct stream link or your IP will be blacklisted.
-    </p>
+  <p class="notice">
+    ⚠️ NOTICE: This stream is proxied through our secure nodes. Do not share the direct stream link or your IP will be blacklisted.
+  </p>
 
-    <a href="index.html" class="btn-pgp">Return to home</a>
+  <!-- Split Buttons -->
+  <div class="btn-row">
+    <a href="index.html" class="btn-pgp">Return to Home</a>
+    <a href="about_glowwave.html" class="btn-pgp">About Glowwave‑FM</a>
+  </div>
+
 </div>
 
 <div class="footer">
-    GLOW-NETWORK © 2012 - 2026. <br>
+  GLOW-NETWORK © 2012 - 2026.<br>
 </div>
 
 <script>
-    const title = document.getElementById('title');
-    const audio = document.getElementById('glow-audio');
-    const playBtn = document.getElementById('play-btn');
-    const visualizer = document.getElementById('visualizer');
-    const gainLabel = document.getElementById('gain-label');
+const title = document.getElementById('title');
+const audio = document.getElementById('glow-audio');
+const playBtn = document.getElementById('play-btn');
+const visualizer = document.getElementById('visualizer');
+const gainLabel = document.getElementById('gain-label');
 
-    const barCount = 40;
-    for(let i=0; i<barCount; i++){
-        const bar = document.createElement('div');
-        bar.className = 'bar';
-        visualizer.appendChild(bar);
-    }
-    const bars = document.querySelectorAll('.bar');
+const barCount = 40;
+for (let i = 0; i < barCount; i++) {
+  const bar = document.createElement('div');
+  bar.className = 'bar';
+  visualizer.appendChild(bar);
+}
+const bars = document.querySelectorAll('.bar');
 
-    let audioCtx, analyzer, source, dataArray;
+let audioCtx, analyzer, source, dataArray;
 
-    function initAudio() {
-        if (audioCtx) return; // Only init once
-        
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        analyzer = audioCtx.createAnalyser();
-        source = audioCtx.createMediaElementSource(audio);
-        source.connect(analyzer);
-        analyzer.connect(audioCtx.destination);
-        
-        analyzer.fftSize = 128; // Small fft for chunky bars
-        const bufferLength = analyzer.frequencyBinCount;
-        dataArray = new Uint8Array(bufferLength);
-        
-        animate();
-    }
+function initAudio() {
+  if (audioCtx) return;
 
-    function animate() {
-        requestAnimationFrame(animate);
-        analyzer.getByteFrequencyData(dataArray);
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  analyzer = audioCtx.createAnalyser();
+  source = audioCtx.createMediaElementSource(audio);
+  source.connect(analyzer);
+  analyzer.connect(audioCtx.destination);
 
-        let sum = 0;
-        for (let i = 0; i < barCount; i++) {
-            // Map the frequency data to the bars
-            const val = dataArray[i] || 0;
-            const height = (val / 255) * 100;
-            bars[i].style.height = height + '%';
-            bars[i].style.opacity = (val / 255) + 0.2;
-            sum += val;
-        }
-        
-        const avg = Math.round((sum / (barCount * 255)) * 100);
-        gainLabel.innerText = `GAIN: ${avg}%`;
-    }
+  analyzer.fftSize = 128;
+  const bufferLength = analyzer.frequencyBinCount;
+  dataArray = new Uint8Array(bufferLength);
 
-    playBtn.addEventListener('click', () => {
-        initAudio();
-        if (audio.paused) {
-            audio.play();
-            playBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg> PAUSE SESSION';
-        } else {
-            audio.pause();
-            playBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> RESUME SESSION';
-        }
+  animate();
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  if (!analyzer) return;
+
+  analyzer.getByteFrequencyData(dataArray);
+
+  let sum = 0;
+  for (let i = 0; i < barCount; i++) {
+    const val = dataArray[i] || 0;
+    const height = (val / 255) * 100;
+    bars[i].style.height = height + '%';
+    bars[i].style.opacity = (val / 255) + 0.2;
+    sum += val;
+  }
+
+  const avg = Math.round((sum / (barCount * 255)) * 100);
+  gainLabel.innerText = `GAIN: ${avg}%`;
+}
+
+playBtn.addEventListener('click', () => {
+  initAudio();
+  if (audio.paused) {
+    audio.play();
+    playBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg> PAUSE SESSION';
+  } else {
+    audio.pause();
+    playBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> RESUME SESSION';
+  }
+});
+
+document.addEventListener('mousemove', (e) => {
+  const x = (window.innerWidth / 2 - e.pageX) / 40;
+  const y = (window.innerHeight / 2 - e.pageY) / 40;
+  title.style.transform = `translateX(${x}px) translateY(${y}px)`;
+});
+
+document.onkeydown = function(e) {
+  if (
+    e.keyCode == 123 ||
+    (e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
+    (e.ctrlKey && e.keyCode == 85)
+  ) {
+    return false;
+  }
+};
+
+/* RSS Ticker */
+const RSS_FEEDS = {
+  "Reuters": "http://feeds.reuters.com/reuters/topNews",
+  "Bellingcat": "https://www.bellingcat.com/feed/",
+  "The Intercept": "https://theintercept.com/feed/?rss",
+  "MintPress": "https://www.mintpressnews.com/feed/",
+  "ProPublica": "https://www.propublica.org/feeds/propublica/main",
+  "Amnesty": "https://www.amnesty.org/en/latest/news/feed/"
+};
+
+async function fetchRSS(url) {
+  try {
+    const res = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(url));
+    const data = await res.json();
+    if (!data.items) return [];
+    return data.items.slice(0, 3).map(i => i.title);
+  } catch {
+    return [];
+  }
+}
+
+async function updateTicker() {
+  let html = "";
+  for (const [source, url] of Object.entries(RSS_FEEDS)) {
+    const headlines = await fetchRSS(url);
+    headlines.forEach(h => {
+      html += `<span class="ticker-item"><span class="ticker-source">${source}</span>${h}</span>`;
     });
+  }
+  if (!html) {
+    html = '<span class="ticker-item"><span class="ticker-source">Glowwave</span>Unable to load headlines right now.</span>';
+  }
+  document.getElementById("ticker").innerHTML = html;
 
-    // Parallax Title
-    document.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.pageX) / 40;
-        const y = (window.innerHeight / 2 - e.pageY) / 40;
-        title.style.transform = `translateX(${x}px) translateY(${y}px)`;
-    });
+  // Fade in deck elements, hide loading bar
+  document.getElementById("loading-bar").style.display = "none";
+  visualizer.style.opacity = 1;
+  document.getElementById("ticker-wrap").style.opacity = 1;
+  document.getElementById("glow-player-wrap").style.opacity = 1;
+}
 
-  
-    document.onkeydown = function(e) {
-        if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
-            return false;
-        }
-    };
+updateTicker();
+setInterval(updateTicker, 60000);
 </script>
+
 </body>
 </html>
-
-
