@@ -505,6 +505,18 @@ async function updateTicker() {
 
 updateTicker();
 setInterval(updateTicker, 60000);
+
+  if ('mediaSession' in navigator) {
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: "Glowwave‑FM",
+    artist: "The Glow‑Network",
+    album: "24/7 Lossless Stream",
+    artwork: [
+      { src: "the-glow-network.png", sizes: "512x512", type: "image/png" }
+    ]
+  });
+}
+
 </script>
 
 </body>
