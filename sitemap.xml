@@ -4,6 +4,14 @@
     <loc>https://glowlinks.net/</loc>
     <priority>1.0</priority>
   </url>
+    <url>
+    <loc>https://glowlinks.net/about_glowwave</loc>
+    <priority>1.0</priority>
+  </url>
+      <url>
+    <loc>https://glowlinks.net/about_glowmovies</loc>
+    <priority>1.0</priority>
+  </url>
   <url>
     <loc>https://glowlinks.net/glowtv</loc>
     <priority>1.0</priority>
@@ -24,6 +32,14 @@
     <loc>https://glowtv.org/</loc>
     <priority>1.0</priority>
   </url>
+      <url>
+    <loc>https://glowtv.org/about_glowwave</loc>
+    <priority>1.0</priority>
+  </url>
+      <url>
+    <loc>https://glowtv.org/about_glowmovies</loc>
+    <priority>1.0</priority>
+  </url>
     <url>
     <loc>https://glowtv.org/meds</loc>
     <priority>1.0</priority>
@@ -42,6 +58,14 @@
   </url>
     <url>
     <loc>https://glowtv.shop/</loc>
+    <priority>1.0</priority>
+  </url>
+        <url>
+    <loc>https://glowtv.shop/about_glowwave</loc>
+    <priority>1.0</priority>
+  </url>
+      <url>
+    <loc>https://glowtv.shop/about_glowmovies</loc>
     <priority>1.0</priority>
   </url>
     <url>
