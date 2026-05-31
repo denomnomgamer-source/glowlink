@@ -504,7 +504,7 @@ async function fetchRSS(url) {
     const res = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(url));
     const data = await res.json();
     if (!data.items) return [];
-    return data.items.slice(0, 3).map(i => i.title);
+    return data.items.slice(0, 10).map(i => i.title);
   } catch {
     return [];
   }
