@@ -333,19 +333,19 @@ function loadServers(season = 1, episode = 1) {
     servers.innerHTML = "";
 
     const movieServers = [
-        {name: "Alpha", url: `https://multiembed.mov/?video_id=${id}&tmdb=1`},
+        {name: "Alpha", url: `https://ezvidapi.com/embed/movie/${id}?provider=vidsrc`},
         {name: "Bravo", url: `https://vidsrc-embed.ru/embed/movie?tmdb=${id}/`},
         {name: "Charlie", url: `https://vidrock.ru/movie/${id}`},
         {name: "Delta", url: `https://vidlink.pro/movie/${id}`},
-        {name: "Echo", url: `https://ezvidapi.com/embed/movie/${id}?provider=vidsrc`}
+        {name: "Echo", url: `https://multiembed.mov/?video_id=${id}&tmdb=1`}
     ];
 
     const tvServers = [
-        {name: "Alpha", url: `https://vidrock.ru/tv/${id}/${season}/${episode}`},
+        {name: "Alpha", url: `https://ezvidapi.com/embed/tv/${id}/${season}/${episode}?provider=vidsrc,
         {name: "Bravo", url: `https://www.2embed.online/tv-2embed.php?id=${id}&season=${season}&episode=${episode}`},
         {name: "Charlie", url: `https://vidsrc-embed.ru/embed/tv?tmdb=${id}&episode=${episode}&season=${season}`},
         {name: "Delta", url: `https://vidlink.pro/tv/${id}/${season}/${episode}`},
-        {name: "Delta", url: `https://ezvidapi.com/embed/tv/${id}/${season}/${episode}?provider=vidsrc
+        {name: "Echo", url: `https://vidrock.ru/tv/${id}/${season}/${episode}`}
 }`}
     ];
 
