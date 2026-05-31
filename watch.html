@@ -344,7 +344,9 @@ function loadServers(season = 1, episode = 1) {
         {name: "Alpha", url: `https://vidrock.ru/tv/${id}/${season}/${episode}`},
         {name: "Bravo", url: `https://www.2embed.online/tv-2embed.php?id=${id}&season=${season}&episode=${episode}`},
         {name: "Charlie", url: `https://vidsrc-embed.ru/embed/tv?tmdb=${id}&episode=${episode}&season=${season}`},
-        {name: "Delta", url: `https://vidlink.pro/tv/${id}/${season}/${episode}`}
+        {name: "Delta", url: `https://vidlink.pro/tv/${id}/${season}/${episode}`},
+        {name: "Delta", url: `https://ezvidapi.com/embed/tv/${id}/${season}/${episode}?provider=vidsrc
+}`}
     ];
 
     const list = type === "movie" ? movieServers : tvServers;
