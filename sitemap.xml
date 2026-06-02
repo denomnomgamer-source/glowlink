@@ -3,6 +3,9 @@
   <url>
     <loc>https://glowlinks.net/</loc>
     <priority>1.0</priority>
+      <url>
+    <loc>https://glowlinks.net/glowflare</loc>
+    <priority>1.0</priority>
   </url>
     <url>
     <loc>https://glowlinks.net/about_glowwave</loc>
