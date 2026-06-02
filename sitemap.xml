@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://glowlinks.net/</loc>
     <priority>1.0</priority>
-      <url>
+  </url>
+  <url>
     <loc>https://glowlinks.net/glowflare</loc>
     <priority>1.0</priority>
   </url>
-    <url>
+  <url>
     <loc>https://glowlinks.net/about_glowwave</loc>
     <priority>1.0</priority>
   </url>
-      <url>
+  <url>
     <loc>https://glowlinks.net/about_glowmovies</loc>
     <priority>1.0</priority>
   </url>
@@ -19,73 +21,75 @@
     <loc>https://glowlinks.net/glowtv</loc>
     <priority>1.0</priority>
   </url>
-    <url>
+  <url>
     <loc>https://glowlinks.net/meds</loc>
     <priority>1.0</priority>
   </url>
-      <url>
+  <url>
     <loc>https://glowlinks.net/radio</loc>
     <priority>1.0</priority>
   </url>
   <url>
-      <loc>https://glowlinks.net/glowmovies</loc>
+    <loc>https://glowlinks.net/glowmovies</loc>
     <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://glowtv.org/</loc>
     <priority>1.0</priority>
   </url>
-      <url>
+  <url>
     <loc>https://glowtv.org/about_glowwave</loc>
     <priority>1.0</priority>
   </url>
-      <url>
+  <url>
     <loc>https://glowtv.org/about_glowmovies</loc>
     <priority>1.0</priority>
   </url>
-    <url>
+  <url>
     <loc>https://glowtv.org/meds</loc>
     <priority>1.0</priority>
   </url>
-      <url>
+  <url>
     <loc>https://glowtv.org/radio</loc>
     <priority>1.0</priority>
   </url>
-        <url>
+  <url>
     <loc>https://glowtv.org/glowtv</loc>
     <priority>1.0</priority>
   </url>
   <url>
-      <loc>https://glowtv.org/glowmovies</loc>
+    <loc>https://glowtv.org/glowmovies</loc>
     <priority>1.0</priority>
   </url>
-    <url>
+
+  <url>
     <loc>https://glowtv.shop/</loc>
     <priority>1.0</priority>
   </url>
-        <url>
+  <url>
     <loc>https://glowtv.shop/about_glowwave</loc>
     <priority>1.0</priority>
   </url>
-      <url>
+  <url>
     <loc>https://glowtv.shop/about_glowmovies</loc>
     <priority>1.0</priority>
   </url>
-    <url>
+  <url>
     <loc>https://glowtv.shop/meds</loc>
     <priority>1.0</priority>
   </url>
-      <url>
+  <url>
     <loc>https://glowtv.shop/radio</loc>
     <priority>1.0</priority>
   </url>
-        <url>
+  <url>
     <loc>https://glowtv.shop/glowtv</loc>
     <priority>1.0</priority>
   </url>
   <url>
-      <loc>https://glowtv.shop/glowmovies</loc>
+    <loc>https://glowtv.shop/glowmovies</loc>
     <priority>1.0</priority>
   </url>
-</urlset>
 
+</urlset>
