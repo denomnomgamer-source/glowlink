@@ -341,6 +341,7 @@ async function searchMovies() {
     });
 }
 
+// Disable right-click
 document.addEventListener("contextmenu", e => e.preventDefault());
 
 document.addEventListener("keydown", e => {
@@ -354,17 +355,19 @@ document.addEventListener("dragstart", e => e.preventDefault());
 let devtoolsOpen = false;
 
 function detectDevTools() {
-    const threshold = 160;
-
-    const widthDiff = window.outerWidth - window.innerWidth > threshold;
-    const heightDiff = window.outerHeight - window.innerHeight > threshold;
-
     const start = performance.now();
     debugger;
     const end = performance.now();
-    const debugTime = end - start > 5;
+    const debugTime = end - start > 20; // 20ms = safer threshold
 
-    if ((widthDiff || heightDiff || debugTime) && !devtoolsOpen) {
+    const element = new Image();
+    let consoleTriggered = false;
+    element.__defineGetter__("id", function () {
+        consoleTriggered = true;
+    });
+    console.log(element);
+
+    if ((debugTime || consoleTriggered) && !devtoolsOpen) {
         devtoolsOpen = true;
 
         document.body.innerHTML = `
@@ -381,7 +384,7 @@ function detectDevTools() {
     }
 }
 
-setInterval(detectDevTools, 500);
+setInterval(detectDevTools, 800);
 
 async function loadGenres() {
     const res = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`);
