@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- ROOT -->
-  <url>
-    <loc>https://glowlinks.net/</loc>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://glowlinks.net/</loc><priority>1.0</priority></url>
 
-  <!-- MAIN GLOW PAGES -->
   <url><loc>https://glowlinks.net/glowmovies</loc><priority>1.0</priority></url>
   <url><loc>https://glowlinks.net/glowtv</loc><priority>1.0</priority></url>
   <url><loc>https://glowlinks.net/radio</loc><priority>1.0</priority></url>
   <url><loc>https://glowlinks.net/meds</loc><priority>1.0</priority></url>
 
-  <!-- ABOUT PAGES -->
   <url><loc>https://glowlinks.net/about_glowwave</loc><priority>1.0</priority></url>
   <url><loc>https://glowlinks.net/about_glowmovies</loc><priority>1.0</priority></url>
 
-  <!-- GLOWFLARE -->
   <url><loc>https://glowlinks.net/glowflare</loc><priority>1.0</priority></url>
 
-  <!-- GLOWFLARE SUBPAGES -->
   <url><loc>https://glowlinks.net/infrastructure</loc><priority>1.0</priority></url>
   <url><loc>https://glowlinks.net/nodes</loc><priority>1.0</priority></url>
   <url><loc>https://glowlinks.net/docs</loc><priority>1.0</priority></url>
@@ -29,13 +21,6 @@
   <url><loc>https://glowlinks.net/purge-cache</loc><priority>1.0</priority></url>
   <url><loc>https://glowlinks.net/node-management</loc><priority>1.0</priority></url>
 
-  <!-- LEGAL -->
   <url><loc>https://glowlinks.net/legal</loc><priority>1.0</priority></url>
-
-</urlset>
-
-    <loc>https://glowtv.shop/glowmovies</loc>
-    <priority>1.0</priority>
-  </url>
 
 </urlset>
