@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url><loc>https://glowtv.org/</loc><priority>1.0</priority></url>
+
+  <url><loc>https://glowtv.org/glowmovies</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/glowtv</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/radio</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/meds</loc><priority>1.0</priority></url>
+
+  <url><loc>https://glowtv.org/about_glowwave</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/about_glowmovies</loc><priority>1.0</priority></url>
+
+  <url><loc>https://glowtv.org/glowflare</loc><priority>1.0</priority></url>
+
+  <url><loc>https://glowtv.org/infrastructure</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/nodes</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/docs</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/tor</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/waf-rulesets</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/purge-cache</loc><priority>1.0</priority></url>
+  <url><loc>https://glowtv.org/node-management</loc><priority>1.0</priority></url>
+
+  <url><loc>https://glowtv.org/legal</loc><priority>1.0</priority></url>
+
+</urlset>
