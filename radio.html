@@ -55,7 +55,6 @@ body {
   padding-top: 5rem;
 }
 
-/* INTRO ANIMATION */
 .intro-screen {
   position: fixed;
   inset: 0;
@@ -162,7 +161,6 @@ h1 {
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-/* Loading bar (in-deck) */
 .loading-bar {
   width: 100%;
   height: 6px;
@@ -187,7 +185,6 @@ h1 {
   100% { width: 0%; }
 }
 
-/* Visualizer */
 .visualizer-container {
   width: 100%;
   height: 120px;
@@ -211,7 +208,6 @@ h1 {
   transition: height 0.05s ease;
 }
 
-/* VU / metrics */
 .vu-meter {
   position: absolute;
   top: 10px;
@@ -223,7 +219,6 @@ h1 {
   line-height: 1.2;
 }
 
-/* Ticker */
 .ticker-wrap {
   width: 100%;
   overflow: hidden;
@@ -259,7 +254,6 @@ h1 {
   100% { transform: translateX(-50%); }
 }
 
-/* Player block */
 #glow-player-wrap {
   background: rgba(5, 5, 12, 0.9);
   padding: 18px;
@@ -307,13 +301,64 @@ audio {
   box-shadow: 0 0 26px rgba(255, 59, 107, 0.6);
 }
 
+.btn-server {
+  background: linear-gradient(135deg, #55556a, #2b2f4a);
+  padding: 0 20px;
+  flex: 0 0 auto;
+  box-shadow: none;
+}
+
+.btn-server:hover {
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+.copy-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.copy-text {
+  color: var(--glow-accent);
+  font-weight: bold;
+  word-break: break-all;
+  font-size: 0.7rem;
+  text-align: left;
+}
+
+.btn-copy {
+  background: rgba(255, 59, 107, 0.2);
+  color: var(--glow-accent);
+  border: 1px solid var(--glow-accent);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.btn-copy:hover {
+  background: var(--glow-accent);
+  color: #fff;
+}
+
 /* Notice */
 .notice {
-  color: var(--gold-premium);
+  color: var(--text-soft);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
-  border: 1px solid rgba(216, 200, 160, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10,10,18,0.5);
   padding: 12px 14px;
   border-radius: 10px;
   line-height: 1.5;
@@ -382,7 +427,6 @@ footer {
     <div class="loading-bar-fill"></div>
   </div>
 
-  <!-- Visualizer -->
   <div class="visualizer-container" id="visualizer" style="opacity:0; transition:0.6s;">
     <div class="vu-meter">
       PEAK: -0.2dB<br>
@@ -391,29 +435,34 @@ footer {
     </div>
   </div>
 
-  <!-- News ticker -->
   <div class="ticker-wrap" id="ticker-wrap" style="opacity:0; transition:0.6s;">
     <div class="ticker-inner" id="ticker">Loading headlines...</div>
   </div>
 
-  <!-- Player -->
   <div id="glow-player-wrap" style="opacity:0; transition:0.6s;">
-    <audio id="glow-audio" crossorigin="anonymous">
-      <source src="https://cdn.woodpecker-becrux.ts.net/stream" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <button id="play-btn" class="btn-pgp" style="width: 100%; margin-bottom: 6px;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      START STREAM
-    </button>
-    <div style="font-size: 10px; color: #666a80; margin-top: 4px;">Take A Beer</div>
+    <audio id="glow-audio" crossorigin="anonymous" src="https://wavehub.uk/api/functions/stationStream?uuid=1cf33481-5bc1-4e66-a95f-9d5278542df1"></audio>
+    
+    <div style="display: flex; gap: 8px; margin-bottom: 6px; width: 100%;">
+      <button id="play-btn" class="btn-pgp" style="flex: 1;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        START STREAM
+      </button>
+      <button id="switch-server-btn" class="btn-pgp btn-server" title="Switch Server">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+      </button>
+    </div>
+    
+    <div id="server-indicator" style="font-size: 10px; color: #666a80; margin-top: 4px;">Server: WVHB (Primary)</div>
   </div>
 
-  <p class="notice">
-    ⚠️ NOTICE: This stream is proxied through our secure nodes. Do not share the direct stream link or your IP will be blacklisted.
-  </p>
+  <div class="notice">
+    📡 <b>EMBED STREAM:</b> Add this radio to your own website using the proxy link below.
+    <div class="copy-box">
+      <span class="copy-text">https://wavehub.uk/api/functions/stationStream?uuid=1cf33481-5bc1-4e66-a95f-9d5278542df1</span>
+      <button class="btn-copy" id="copy-btn" onclick="copyEmbedUrl()">Copy</button>
+    </div>
+  </div>
 
-  <!-- Split Buttons -->
   <div class="btn-row">
     <a href="index.html" class="btn-pgp">Return to Home</a>
     <a href="about_glowwave.html" class="btn-pgp">About Glowwave‑FM</a>
@@ -438,6 +487,39 @@ const audio = document.getElementById('glow-audio');
 const playBtn = document.getElementById('play-btn');
 const visualizer = document.getElementById('visualizer');
 const gainLabel = document.getElementById('gain-label');
+
+const switchBtn = document.getElementById('switch-server-btn');
+const serverIndicator = document.getElementById('server-indicator');
+
+
+const servers = [
+  { name: "WVHB (Primary)", url: "https://wavehub.uk/api/functions/stationStream?uuid=1cf33481-5bc1-4e66-a95f-9d5278542df1" },
+  { name: "Woodpecker (Fallback)", url: "https://cdn.woodpecker-becrux.ts.net/stream" }
+];
+let currentServerIndex = 0;
+
+audio.addEventListener('error', () => {
+  if (currentServerIndex === 0) {
+    console.log("Primary stream failed, attempting fallback...");
+    setServer(1);
+  }
+});
+
+function setServer(index) {
+  const wasPlaying = !audio.paused;
+  currentServerIndex = index;
+  audio.src = servers[currentServerIndex].url;
+  serverIndicator.innerText = `Server: ${servers[currentServerIndex].name}`;
+  
+  if (wasPlaying) {
+    audio.play().catch(e => console.log("Playback error after switch:", e));
+  }
+}
+
+switchBtn.addEventListener('click', () => {
+  const nextIndex = (currentServerIndex + 1) % servers.length;
+  setServer(nextIndex);
+});
 
 const barCount = 40;
 for (let i = 0; i < barCount; i++) {
@@ -545,7 +627,6 @@ async function updateTicker() {
   }
   document.getElementById("ticker").innerHTML = html;
 
-  // Fade in deck elements, hide loading bar
   document.getElementById("loading-bar").style.display = "none";
   visualizer.style.opacity = 1;
   document.getElementById("ticker-wrap").style.opacity = 1;
@@ -564,6 +645,24 @@ setInterval(updateTicker, 60000);
       { src: "the-glow-network.png", sizes: "512x512", type: "image/png" }
     ]
   });
+}
+
+function copyEmbedUrl() {
+  const textToCopy = "https://wavehub.uk/api/functions/stationStream?uuid=1cf33481-5bc1-4e66-a95f-9d5278542df1";
+  
+  const tempInput = document.createElement("input");
+  tempInput.value = textToCopy;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+
+  const copyBtn = document.getElementById("copy-btn");
+  const originalText = copyBtn.innerText;
+  copyBtn.innerText = "COPIED!";
+  setTimeout(() => {
+    copyBtn.innerText = originalText;
+  }, 2000);
 }
 
 </script>
